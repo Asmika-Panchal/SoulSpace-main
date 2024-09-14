@@ -1,6 +1,8 @@
 import 'dart:ui';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:soul/screens/mood3.dart';
 
 class Mood2Screen extends StatelessWidget {
   const Mood2Screen({super.key});
@@ -8,6 +10,11 @@ class Mood2Screen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+            onPressed: () => Navigator.pop(context),
+            icon: const Icon(CupertinoIcons.chevron_back)),
+      ),
       body: Stack(
         children: [
           // Background Image with Blur Effect
@@ -126,39 +133,47 @@ class MoodButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: isSelected
-            ? const Color.fromARGB(255, 223, 205, 125)
-            : const Color.fromARGB(
-                0, 96, 93, 93), // Transparent background for unselected
-        border: Border.all(
-          color: const Color.fromARGB(255, 130, 127, 127)
-              .withOpacity(0.5), // Slightly black border for unselected buttons
-          width: 2,
-        ),
-        borderRadius: BorderRadius.circular(20.0),
-      ),
-      child: ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          backgroundColor: Colors.transparent, // Keep transparent background
-          shadowColor: Colors.transparent, // No shadow
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20.0),
+    return InkWell(
+      child: Container(
+        decoration: BoxDecoration(
+          color: isSelected
+              ? const Color.fromARGB(255, 223, 205, 125)
+              : const Color.fromARGB(
+                  0, 96, 93, 93), // Transparent background for unselected
+          border: Border.all(
+            color: const Color.fromARGB(255, 130, 127, 127).withOpacity(
+                0.5), // Slightly black border for unselected buttons
+            width: 2,
           ),
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+          borderRadius: BorderRadius.circular(20.0),
         ),
-        onPressed: () {
-          // Handle button press
-        },
-        child: Text(
-          text,
-          style: const TextStyle(
-            color: Colors.white, // White text
-            fontSize: 16,
+        child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.transparent, // Keep transparent background
+            shadowColor: Colors.transparent, // No shadow
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20.0),
+            ),
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+          ),
+          onPressed: () {
+            // Handle button press
+          },
+          child: Text(
+            text,
+            style: const TextStyle(
+              color: Colors.white, // White text
+              fontSize: 16,
+            ),
           ),
         ),
       ),
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const Mood3Screen()),
+        );
+      },
     );
   }
 }

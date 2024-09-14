@@ -1,4 +1,5 @@
 import 'dart:ui'; // Import for ImageFilter.blur
+
 import 'package:flutter/material.dart';
 import 'package:soul/screens/mood2.dart';
 
@@ -27,6 +28,11 @@ class _Mood1ScreenState extends State<Mood1Screen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+            onPressed: () => Navigator.pop(context),
+            icon: const Icon(CupertinoIcons.chevron_back)),
+      ),
       body: Stack(
         children: [
           // Background Image with Blur Effect
@@ -134,6 +140,36 @@ class _Mood1ScreenState extends State<Mood1Screen> {
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+// Custom Widget for displaying an Emoji
+class EmojiWidget extends StatelessWidget {
+  final String emoji;
+
+  const EmojiWidget({super.key, required this.emoji});
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        // Handle emoji tap event
+      },
+      child: Container(
+        width: 60,
+        height: 60,
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          color:
+              Colors.white.withOpacity(0.9), // Optional background behind emoji
+        ),
+        alignment: Alignment.center,
+        child: Text(
+          emoji,
+          style: const TextStyle(fontSize: 40), // Emoji size
+        ),
       ),
     );
   }

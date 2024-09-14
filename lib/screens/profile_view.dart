@@ -16,7 +16,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   @override
   Widget build(BuildContext context) {
-    var isDarkMode = true;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.purple.shade700,
@@ -25,7 +24,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         leading: IconButton(
           icon: const Icon(CupertinoIcons.back),
           onPressed: () {
-            Navigator.pop(context);
+            // Navigator.pop(context);
           },
         ),
       ),
@@ -131,22 +130,19 @@ class _ProfileScreenState extends State<ProfileScreen> {
               child: ListView(
                 padding: const EdgeInsets.symmetric(horizontal: 30),
                 children: [
-                  InkWell(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const Mood1Screen(),
-                        ),
-                      );
-                    }, 
-                 child: buildSettingItem(
-                   icon: Icons.person_outline,
-                    title: "😊Mood Entry",
-                    trailing: const Icon(CupertinoIcons.gauge)
+                  buildSettingItem(
+                    icon: Icons.nights_stay,
+                    title: "Dark Mode",
+                    trailing: CupertinoSwitch(
+                      value: isDarkMode,
+                      onChanged: (value) {
+                        setState(() {
+                          isDarkMode = value;
+                        });
+                      },
+                      activeColor: Colors.purple,
+                    ),
                   ),
-                ),
-                  
                  InkWell(
                     onTap: () {
                       Navigator.push(
@@ -155,13 +151,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           builder: (context) => const Questions(),
                         ),
                       );
-                    }, 
-                 child: buildSettingItem(
-                    icon: Icons.credit_card,
-                    title: "Questionaire",
-                    trailing: const Icon(CupertinoIcons.question_circle),
+                    },
+                    child: buildSettingItem(
+                      icon: CupertinoIcons.question_circle,
+                      title: "Questionaire",
+                      trailing: const Icon(CupertinoIcons.chevron_right),
+                    ),
                   ),
-                 ),
                   buildSettingItem(
                     icon: Icons.person_outline,
                     title: "Profile Details",
