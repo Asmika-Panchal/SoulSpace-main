@@ -2,18 +2,9 @@ import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: SoulHomeScreen(),
-    );
-  }
-}
+import 'package:soul/screens/soulvoice_view.dart';
+import 'package:soul/screens/statsscreen.dart';
+import 'package:soul/soulspace.dart';
 
 class SoulHomeScreen extends StatelessWidget {
   const SoulHomeScreen({super.key});
@@ -84,58 +75,59 @@ class SoulHomeScreen extends StatelessWidget {
                       Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Card(
-                            clipBehavior: Clip.hardEdge,
-                            child: InkWell(
-                              splashColor: Colors.blue.withAlpha(30),
-                              onTap: () {
-                                debugPrint('Card tapped.');
-                              },
-                              child: Container(
-                                decoration: const BoxDecoration(
-                                    borderRadius: BorderRadius.only(
-                                        bottomRight: Radius.circular(16),
-                                        bottomLeft: Radius.circular(40),
-                                        topLeft: Radius.circular(40),
-                                        topRight: Radius.circular(16)),
-                                    gradient: LinearGradient(
-                                        begin: Alignment.topRight,
-                                        end: Alignment.bottomLeft,
-                                        colors: [
-                                          Color(0xffC56EE0),
-                                          Color.fromARGB(255, 174, 83, 201),
-                                          Color(0xff580970)
-                                        ])),
-                                height: screenHeight * 0.31,
-                                width: screenWidth * 0.4,
-                                child: Center(
-                                    child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Container(
-                                      decoration: const BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        color: Color(0xffC26BDD),
-                                      ),
-                                      padding: const EdgeInsets.all(7),
-                                      child: const Icon(
-                                        CupertinoIcons.mic,
-                                        size: 35,
-                                        color: Color(0xff360844),
-                                      ),
+                          InkWell(
+                            child: Container(
+                              decoration: const BoxDecoration(
+                                  borderRadius: BorderRadius.only(
+                                      bottomRight: Radius.circular(16),
+                                      bottomLeft: Radius.circular(40),
+                                      topLeft: Radius.circular(40),
+                                      topRight: Radius.circular(16)),
+                                  gradient: LinearGradient(
+                                      begin: Alignment.topRight,
+                                      end: Alignment.bottomLeft,
+                                      colors: [
+                                        Color(0xffC56EE0),
+                                        Color.fromARGB(255, 174, 83, 201),
+                                        Color(0xff580970)
+                                      ])),
+                              height: screenHeight * 0.31,
+                              width: screenWidth * 0.4,
+                              child: Center(
+                                  child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Container(
+                                    decoration: const BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      color: Color(0xffC26BDD),
                                     ),
-                                    const Text(
-                                      'Talk with SoulVoice',
-                                      style: TextStyle(
-                                          fontSize: 20,
-                                          color: Color.fromARGB(
-                                              255, 255, 255, 255)),
-                                      textAlign: TextAlign.center,
+                                    padding: const EdgeInsets.all(7),
+                                    child: const Icon(
+                                      CupertinoIcons.mic,
+                                      size: 35,
+                                      color: Color(0xff360844),
                                     ),
-                                  ],
-                                )),
-                              ),
+                                  ),
+                                  const Text(
+                                    'Talk with SoulVoice',
+                                    style: TextStyle(
+                                        fontSize: 20,
+                                        color:
+                                            Color.fromARGB(255, 255, 255, 255)),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                ],
+                              )),
                             ),
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const SoulVoiceScreen()),
+                              );
+                            },
                           ),
                         ],
                       ),
@@ -145,88 +137,106 @@ class SoulHomeScreen extends StatelessWidget {
                       Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Container(
-                            decoration: const BoxDecoration(
-                                borderRadius: BorderRadius.only(
-                                    bottomRight: Radius.circular(16),
-                                    bottomLeft: Radius.circular(16),
-                                    topLeft: Radius.circular(16),
-                                    topRight: Radius.circular(40)),
-                                gradient: LinearGradient(
-                                    begin: Alignment.topLeft,
-                                    end: Alignment.bottomRight,
-                                    colors: [
-                                      Color(0xffC4FFB2),
-                                      Color(0xff00C472)
-                                    ])),
-                            height: screenHeight * 0.15,
-                            width: screenWidth * 0.4,
-                            child: Center(
-                                child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Container(
-                                  decoration: const BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    color: Color(0xff17CB79),
+                          InkWell(
+                            child: Container(
+                              decoration: const BoxDecoration(
+                                  borderRadius: BorderRadius.only(
+                                      bottomRight: Radius.circular(16),
+                                      bottomLeft: Radius.circular(16),
+                                      topLeft: Radius.circular(16),
+                                      topRight: Radius.circular(40)),
+                                  gradient: LinearGradient(
+                                      begin: Alignment.topLeft,
+                                      end: Alignment.bottomRight,
+                                      colors: [
+                                        Color(0xffC4FFB2),
+                                        Color(0xff00C472)
+                                      ])),
+                              height: screenHeight * 0.15,
+                              width: screenWidth * 0.4,
+                              child: Center(
+                                  child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Container(
+                                    decoration: const BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      color: Color(0xff17CB79),
+                                    ),
+                                    padding: const EdgeInsets.all(7),
+                                    child: const Icon(
+                                      CupertinoIcons.chat_bubble_fill,
+                                      size: 35,
+                                      color: Color(0xff360844),
+                                    ),
                                   ),
-                                  padding: const EdgeInsets.all(7),
-                                  child: const Icon(
-                                    CupertinoIcons.chat_bubble_fill,
-                                    size: 35,
-                                    color: Color(0xff360844),
+                                  const Text(
+                                    'Chat',
+                                    style: TextStyle(
+                                        fontSize: 20, color: Color(0xff360844)),
                                   ),
-                                ),
-                                const Text(
-                                  'Chat',
-                                  style: TextStyle(
-                                      fontSize: 20, color: Color(0xff360844)),
-                                ),
-                              ],
-                            )),
+                                ],
+                              )),
+                            ),
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const ChatScreen()),
+                              );
+                            },
                           ),
                           SizedBox(
                             height: screenHeight * 0.01,
                           ),
-                          Container(
-                            decoration: const BoxDecoration(
-                                borderRadius: BorderRadius.only(
-                                    bottomRight: Radius.circular(40),
-                                    bottomLeft: Radius.circular(16),
-                                    topLeft: Radius.circular(16),
-                                    topRight: Radius.circular(16)),
-                                gradient: LinearGradient(
-                                    begin: Alignment.topRight,
-                                    end: Alignment.bottomLeft,
-                                    colors: [
-                                      Color(0xffF0CB93),
-                                      Color(0xffE65D5D)
-                                    ])),
-                            height: screenHeight * 0.15,
-                            width: screenWidth * 0.4,
-                            child: Center(
-                                child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Container(
-                                  decoration: const BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    color: Color(0xffECA681),
+                          InkWell(
+                            child: Container(
+                              decoration: const BoxDecoration(
+                                  borderRadius: BorderRadius.only(
+                                      bottomRight: Radius.circular(40),
+                                      bottomLeft: Radius.circular(16),
+                                      topLeft: Radius.circular(16),
+                                      topRight: Radius.circular(16)),
+                                  gradient: LinearGradient(
+                                      begin: Alignment.topRight,
+                                      end: Alignment.bottomLeft,
+                                      colors: [
+                                        Color(0xffF0CB93),
+                                        Color(0xffE65D5D)
+                                      ])),
+                              height: screenHeight * 0.15,
+                              width: screenWidth * 0.4,
+                              child: Center(
+                                  child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Container(
+                                    decoration: const BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      color: Color(0xffECA681),
+                                    ),
+                                    padding: const EdgeInsets.all(7),
+                                    child: const Icon(
+                                      CupertinoIcons.graph_square_fill,
+                                      size: 35,
+                                      color: Color(0xff360844),
+                                    ),
                                   ),
-                                  padding: const EdgeInsets.all(7),
-                                  child: const Icon(
-                                    CupertinoIcons.graph_square_fill,
-                                    size: 35,
-                                    color: Color(0xff360844),
+                                  const Text(
+                                    'Stats',
+                                    style: TextStyle(
+                                        fontSize: 20, color: Color(0xff360844)),
                                   ),
-                                ),
-                                const Text(
-                                  'Stats',
-                                  style: TextStyle(
-                                      fontSize: 20, color: Color(0xff360844)),
-                                ),
-                              ],
-                            )),
+                                ],
+                              )),
+                            ),
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const Statsscreen()),
+                              );
+                            },
                           ),
                         ],
                       ),

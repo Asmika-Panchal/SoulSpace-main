@@ -36,6 +36,7 @@ class _SoulBotHomeState extends State<SoulBotHome> {
           });
         },
         indicatorColor: Colors.deepPurple,
+        backgroundColor: Color.fromARGB(255, 0, 0, 0).withOpacity(0.1),
         selectedIndex: currentPageIndex,
         destinations: const [
           NavigationDestination(
