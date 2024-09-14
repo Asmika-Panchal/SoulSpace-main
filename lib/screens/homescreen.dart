@@ -2,9 +2,9 @@ import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:soul/screens/soulspace.dart';
 import 'package:soul/screens/soulvoice_view.dart';
 import 'package:soul/screens/statsscreen.dart';
-import 'package:soul/soulspace.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
