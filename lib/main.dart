@@ -7,7 +7,9 @@ import 'package:soul/mood2.dart';
 import 'package:soul/mood3.dart';
 import 'package:soul/question.dart';
 import 'package:soul/reminder.dart';
-
+import 'package:soul/soulvoice_view.dart';
+import 'package:soul/soulspace.dart';
+import 'package:soul/profile_view.dart';
 
 //Start Point, to run app
 void main() {
@@ -24,10 +26,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-          brightness: Brightness.dark,
-          primaryColor: CupertinoColors.activeBlue,
-          ),
-      home: LoginScreen(),
+        brightness: Brightness.dark,
+        primaryColor: CupertinoColors.activeBlue,
+      ),
+      home: ProfileScreen(),
       //Here call the screen you want to
     );
   }
