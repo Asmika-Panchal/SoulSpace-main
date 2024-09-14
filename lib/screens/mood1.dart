@@ -1,9 +1,10 @@
 import 'dart:ui'; // Import for ImageFilter.blur
+
 import 'package:flutter/material.dart';
 
-
-
 class Mood1Screen extends StatelessWidget {
+  const Mood1Screen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,11 +42,11 @@ class Mood1Screen extends StatelessWidget {
                   const EdgeInsets.all(20.0), // Padding inside the black tray
               margin: const EdgeInsets.symmetric(
                   horizontal: 20.0), // Margin to provide space on the sides
-              child: Column(
+              child: const Column(
                 mainAxisSize: MainAxisSize.min, // Minimize height to content
                 children: [
                   // Text inside the black tray
-                  const Text(
+                  Text(
                     "How are you feeling today?",
                     style: TextStyle(
                       fontSize: 22,
@@ -55,8 +56,7 @@ class Mood1Screen extends StatelessWidget {
                     textAlign: TextAlign.center,
                   ),
 
-                  const SizedBox(
-                      height: 20), // Space between the text and emojis
+                  SizedBox(height: 20), // Space between the text and emojis
 
                   // Emojis as mood options inside the black tray
                   Wrap(
@@ -117,7 +117,7 @@ class Mood1Screen extends StatelessWidget {
 class EmojiWidget extends StatelessWidget {
   final String emoji;
 
-  const EmojiWidget({Key? key, required this.emoji}) : super(key: key);
+  const EmojiWidget({super.key, required this.emoji});
 
   @override
   Widget build(BuildContext context) {

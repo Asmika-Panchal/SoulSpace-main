@@ -1,7 +1,10 @@
 import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 class Mood2Screen extends StatelessWidget {
+  const Mood2Screen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -9,7 +12,7 @@ class Mood2Screen extends StatelessWidget {
         children: [
           // Background Image with Blur Effect
           Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage(
                     'assets/mood_2.webp'), // Add your background image here
@@ -42,11 +45,11 @@ class Mood2Screen extends StatelessWidget {
               ),
               padding:
                   const EdgeInsets.symmetric(vertical: 16.0, horizontal: 18.0),
-              child: Column(
+              child: const Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   // Semi-transparent rectangle with the text (Top center)
-                  const Text(
+                  Text(
                     "What makes you feel good?",
                     style: TextStyle(
                       fontSize: 22,
@@ -56,15 +59,14 @@ class Mood2Screen extends StatelessWidget {
                     textAlign: TextAlign.center,
                   ),
 
-                  const SizedBox(
-                      height: 30), // Space between text and mood options
+                  SizedBox(height: 30), // Space between text and mood options
 
                   // Mood buttons as options
                   Wrap(
                     alignment: WrapAlignment.center,
                     spacing: 20.0, // Space between buttons
                     runSpacing: 20.0, // Space between rows
-                    children: const [
+                    children: [
                       MoodButton(text: 'Relation'),
                       MoodButton(
                           text: 'Family',
@@ -120,8 +122,7 @@ class MoodButton extends StatelessWidget {
   final String text;
   final bool isSelected;
 
-  const MoodButton({Key? key, required this.text, this.isSelected = false})
-      : super(key: key);
+  const MoodButton({super.key, required this.text, this.isSelected = false});
 
   @override
   Widget build(BuildContext context) {

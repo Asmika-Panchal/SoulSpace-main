@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:soul/rootscreen.dart';
+import 'package:soul/screens/navigationscreen.dart';
 
 //Start Point, to run app
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
           brightness: Brightness.dark,
           primaryColor: CupertinoColors.activeBlue,
           fontFamily: 'Alice'),
-      home: SoulBotHome(),
+      home: const SoulBotHome(),
       //Here call the screen you want to
     );
   }

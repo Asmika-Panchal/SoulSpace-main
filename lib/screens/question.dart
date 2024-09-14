@@ -1,7 +1,10 @@
 import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 class Questions extends StatelessWidget {
+  const Questions({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -9,7 +12,7 @@ class Questions extends StatelessWidget {
         children: [
           // Background Image with Blur Effect
           Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage('assets/question.webp'), // Background image
                 fit: BoxFit.cover,
@@ -18,7 +21,8 @@ class Questions extends StatelessWidget {
             child: BackdropFilter(
               filter: ImageFilter.blur(sigmaX: 3.0, sigmaY: 3.0), // Blur effect
               child: Container(
-                color: Colors.black.withOpacity(0.3), // Adjust opacity as needed
+                color:
+                    Colors.black.withOpacity(0.3), // Adjust opacity as needed
               ),
             ),
           ),
@@ -30,8 +34,8 @@ class Questions extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 // Adjusted Padding for the Heading
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(20.0, 60.0, 20.0, 20.0),
+                const Padding(
+                  padding: EdgeInsets.fromLTRB(20.0, 60.0, 20.0, 20.0),
                   child: Text(
                     'Getting to Know You!',
                     style: TextStyle(
@@ -48,17 +52,18 @@ class Questions extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
                         _buildQuestionTray('What is your name?'),
-                        SizedBox(height: 15),
+                        const SizedBox(height: 15),
                         _buildQuestionTray('What is your age?'),
-                        SizedBox(height: 15),
+                        const SizedBox(height: 15),
                         _buildQuestionTray('What makes you feel happy?'),
-                        SizedBox(height: 15),
+                        const SizedBox(height: 15),
                         _buildQuestionTray('What topics should I avoid?'),
-                        SizedBox(height: 15),
+                        const SizedBox(height: 15),
                         _buildQuestionTray('What inspires you the most?'),
-                        SizedBox(height: 15),
-                        _buildQuestionTray('What mindfulness practices work for you?'),
-                        SizedBox(height: 50), // Space at the bottom
+                        const SizedBox(height: 15),
+                        _buildQuestionTray(
+                            'What mindfulness practices work for you?'),
+                        const SizedBox(height: 50), // Space at the bottom
                       ],
                     ),
                   ),
@@ -73,9 +78,10 @@ class Questions extends StatelessWidget {
 
   Widget _buildQuestionTray(String question) {
     return Container(
-      padding: EdgeInsets.all(16),
+      padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: const Color.fromARGB(255, 0, 0, 0).withOpacity(0.7), // Tray background
+        color: const Color.fromARGB(255, 0, 0, 0)
+            .withOpacity(0.7), // Tray background
         borderRadius: BorderRadius.circular(10.0), // Rounded corners
       ),
       child: Column(
@@ -83,12 +89,12 @@ class Questions extends StatelessWidget {
         children: [
           Text(
             question,
-            style: TextStyle(
+            style: const TextStyle(
               color: Colors.white,
               fontSize: 18,
             ),
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           TextField(
             decoration: InputDecoration(
               filled: true,

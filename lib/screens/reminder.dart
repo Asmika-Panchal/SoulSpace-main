@@ -1,8 +1,10 @@
 import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
-
 class ReminderScreen extends StatelessWidget {
+  const ReminderScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -12,7 +14,8 @@ class ReminderScreen extends StatelessWidget {
           Container(
             decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/reminder.webp'), // Add your background image here
+                image: AssetImage(
+                    'assets/reminder.webp'), // Add your background image here
                 fit: BoxFit.cover,
               ),
             ),
@@ -20,7 +23,8 @@ class ReminderScreen extends StatelessWidget {
               filter: ImageFilter.blur(sigmaX: 3.0, sigmaY: 3.0), // Blur effect
               child: Container(
                 decoration: BoxDecoration(
-                  color: Colors.black.withOpacity(0.2), // Slight black overlay with opacity
+                  color: Colors.black
+                      .withOpacity(0.2), // Slight black overlay with opacity
                 ),
               ),
             ),
@@ -92,7 +96,8 @@ class ReminderScreen extends StatelessWidget {
                       '+ Add new reminder',
                       style: TextStyle(
                         fontSize: 16, // Reduced font size
-                        color: Color.fromARGB(179, 0, 0, 0), // Less intense color
+                        color:
+                            Color.fromARGB(179, 0, 0, 0), // Less intense color
                       ),
                     ),
                   ),
@@ -125,15 +130,18 @@ class ReminderScreen extends StatelessWidget {
                 color: Color.fromARGB(255, 237, 234, 238),
                 shape: BoxShape.circle,
               ),
-              child: Icon(Icons.notifications, color: const Color.fromARGB(255, 64, 8, 74)),
+              child: const Icon(Icons.notifications,
+                  color: Color.fromARGB(255, 64, 8, 74)),
             ),
             const SizedBox(width: 10),
             // Combined rectangle with time and label
             Expanded(
               child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 13, vertical: 8),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 13, vertical: 8),
                 decoration: BoxDecoration(
-                  color: Colors.black.withOpacity(0.7), // Black background for time and label
+                  color: Colors.black
+                      .withOpacity(0.7), // Black background for time and label
                   borderRadius: BorderRadius.circular(15), // Rounded corners
                 ),
                 child: Row(

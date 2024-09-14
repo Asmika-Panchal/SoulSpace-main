@@ -1,12 +1,14 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+// ignore: depend_on_referenced_packages
 import 'package:gif/gif.dart';
 
 class SoulVoiceScreen extends StatefulWidget {
   const SoulVoiceScreen({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _SoulVoiceScreenState createState() => _SoulVoiceScreenState();
 }
 
@@ -27,7 +29,7 @@ class _SoulVoiceScreenState extends State<SoulVoiceScreen>
         children: [
           // Black tray with blur effect
           Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage('assets/bg3.jpeg'), // Background image
                 fit: BoxFit.cover,
@@ -46,8 +48,8 @@ class _SoulVoiceScreenState extends State<SoulVoiceScreen>
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                SizedBox(height: 80),
-                Text(
+                const SizedBox(height: 80),
+                const Text(
                   'Hi, I am Soul Voice!',
                   style: TextStyle(
                     fontSize: 30,
@@ -56,8 +58,8 @@ class _SoulVoiceScreenState extends State<SoulVoiceScreen>
                   ),
                   textAlign: TextAlign.center,
                 ),
-                SizedBox(height: 10),
-                Text(
+                const SizedBox(height: 10),
+                const Text(
                   'Tell me, How can I help you?',
                   style: TextStyle(
                     fontSize: 20,
@@ -65,7 +67,7 @@ class _SoulVoiceScreenState extends State<SoulVoiceScreen>
                   ),
                   textAlign: TextAlign.center,
                 ),
-                SizedBox(height: 30),
+                const SizedBox(height: 30),
                 // Microphone icon with animated GIF
                 Gif(
                   autostart: Autostart.loop,
@@ -73,9 +75,9 @@ class _SoulVoiceScreenState extends State<SoulVoiceScreen>
                       const Center(child: CircularProgressIndicator()),
                   image: const AssetImage('assets/mic.gif'),
                 ),
-                SizedBox(height: 30),
+                const SizedBox(height: 30),
                 // Display sound.jpeg as an image
-                Container(
+                SizedBox(
                   width: MediaQuery.of(context).size.width *
                       0.8, // Dynamically adjust the width
                   height: 100,

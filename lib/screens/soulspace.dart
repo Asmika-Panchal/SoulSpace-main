@@ -1,3 +1,5 @@
+// ignore_for_file: unused_element
+
 import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
@@ -8,18 +10,18 @@ class ChatScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var screenHeight = MediaQuery.of(context).size.height;
+    // var screenHeight = MediaQuery.of(context).size.height;
     // var screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          icon: Icon(CupertinoIcons.back,
-              color: const Color.fromARGB(255, 255, 255, 255)),
+          icon: const Icon(CupertinoIcons.back,
+              color: Color.fromARGB(255, 255, 255, 255)),
           onPressed: () => 1 + 1,
           // Navigator.of(context).pop(),
         ),
-        title: Row(
-          children: const [
+        title: const Row(
+          children: [
             Icon(CupertinoIcons.heart_circle_fill, color: Colors.white),
             SizedBox(width: 8),
             Text('Soulspace', style: TextStyle(color: Colors.white)),
@@ -29,7 +31,7 @@ class ChatScreen extends StatelessWidget {
       ),
       body: Stack(children: [
         Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             image: DecorationImage(
               image: AssetImage('assets/bg2.jpeg'),
               fit: BoxFit.cover,
@@ -45,7 +47,7 @@ class ChatScreen extends StatelessWidget {
         Column(
           children: [
             Container(
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage('assets/bg.png'),
                   fit: BoxFit.cover,
@@ -61,15 +63,15 @@ class ChatScreen extends StatelessWidget {
             ),
             Expanded(
               child: ListView(
-                padding: EdgeInsets.all(16),
+                padding: const EdgeInsets.all(16),
                 children: [
                   buildUserMessage("I don’t feel so good"),
-                  SizedBox(height: 16),
+                  const SizedBox(height: 16),
                   buildBotMessage(
                       "I’m sorry to hear that. Are you feeling physically unwell, or is it more of an emotional or mental strain? If you’re comfortable sharing, I might be able to offer some advice or just be here to listen."),
-                  SizedBox(height: 16),
+                  const SizedBox(height: 16),
                   buildUserMessage("Yeah give some advice"),
-                  SizedBox(height: 16),
+                  const SizedBox(height: 16),
                   buildBotMessage(
                       "Feel Better Tips\n• Take a break & relax\n• Stay active with a short walk/stretch\n• Connect with nature"),
                 ],
@@ -92,9 +94,9 @@ class ChatScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(width: 8),
+                  const SizedBox(width: 8),
                   IconButton(
-                    icon: Icon(CupertinoIcons.arrow_up_circle_fill,
+                    icon: const Icon(CupertinoIcons.arrow_up_circle_fill,
                         size: 55, color: Colors.white),
                     onPressed: () {},
                   ),
@@ -115,7 +117,7 @@ class ChatScreen extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         Icon(icon,
-            color: isActive ? Colors.purpleAccent : Color(0xff6F2685),
+            color: isActive ? Colors.purpleAccent : const Color(0xff6F2685),
             size: screenHeight * 0.04),
         SizedBox(height: screenHeight * 0.005),
         Text(
@@ -130,10 +132,10 @@ class ChatScreen extends StatelessWidget {
     return Align(
       alignment: Alignment.centerRight,
       child: Container(
-        padding: EdgeInsets.all(16),
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-              colors: const [Color(0xff860EAA), Color(0xff360644)]),
+        padding: const EdgeInsets.all(16),
+        decoration: const BoxDecoration(
+          gradient:
+              LinearGradient(colors: [Color(0xff860EAA), Color(0xff360644)]),
           borderRadius: BorderRadius.only(
               topLeft: Radius.circular(20),
               topRight: Radius.circular(0),
@@ -142,7 +144,7 @@ class ChatScreen extends StatelessWidget {
         ),
         child: Text(
           message,
-          style: TextStyle(color: Colors.white),
+          style: const TextStyle(color: Colors.white),
         ),
       ),
     );
@@ -152,17 +154,17 @@ class ChatScreen extends StatelessWidget {
     return Align(
       alignment: Alignment.centerLeft,
       child: Container(
-        padding: EdgeInsets.all(16),
-        decoration: BoxDecoration(
+        padding: const EdgeInsets.all(16),
+        decoration: const BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topRight,
             end: Alignment.bottomLeft,
-            colors: const [
+            colors: [
               Color(0xFF663DFF), // #663dff
               Color(0xFFAA00FF), // #aa00ff
               Color(0xFFCC4499), // #cc4499
             ],
-            stops: const [0.0, 0.37, 1.0],
+            stops: [0.0, 0.37, 1.0],
           ),
           borderRadius: BorderRadius.only(
               topLeft: Radius.circular(0),
@@ -172,7 +174,7 @@ class ChatScreen extends StatelessWidget {
         ),
         child: Text(
           message,
-          style: TextStyle(color: Colors.white),
+          style: const TextStyle(color: Colors.white),
         ),
       ),
     );
