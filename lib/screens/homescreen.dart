@@ -1,5 +1,4 @@
 import 'dart:ui';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -41,58 +40,60 @@ class SoulHomeScreen extends StatelessWidget {
             ),
           ),
           SafeArea(
-            child: Column(
-              children: [
-                Padding(
-                  padding: EdgeInsets.symmetric(
-                      horizontal: screenWidth * 0.05,
-                      vertical: screenHeight * 0.02),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Hello, John',
-                            style: TextStyle(
-                              fontSize: screenHeight * 0.045,
-                              // fontWeight: FontWeight.bold,
-                              color: Colors.white,
-                            ),
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                        horizontal: screenWidth * 0.05,
+                        vertical: screenHeight * 0.02),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Hello, John',
+                                style: TextStyle(
+                                  fontSize: screenHeight * 0.045,
+                                  color: Colors.white,
+                                ),
+                              ),
+                              Text(
+                                'How can I assist you right now?',
+                                style: TextStyle(
+                                    fontSize: screenHeight * 0.02,
+                                    color: Colors.white),
+                              ),
+                            ],
                           ),
-                          Text(
-                            'How can I assist you right now?',
-                            style: TextStyle(
-                                fontSize: screenHeight * 0.02,
-                                color: Colors.white),
-                          ),
-                        ],
-                      ),
-                      CircleAvatar(
-                        backgroundColor: Colors.white,
-                        radius: screenHeight * 0.04,
-                        child: Image.asset("assets/profile.png"),
-                      ),
-                    ],
+                        ),
+                        CircleAvatar(
+                          backgroundColor: Colors.white,
+                          radius: screenHeight * 0.04,
+                          child: Image.asset("assets/profile.png"),
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-                Expanded(
-                  child: Row(
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Card(
-                            clipBehavior: Clip.hardEdge,
-                            child: InkWell(
-                              splashColor: Colors.blue.withAlpha(30),
-                              onTap: () {
-                                debugPrint('Card tapped.');
-                              },
-                              child: Container(
-                                decoration: const BoxDecoration(
+                      Flexible(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Card(
+                              clipBehavior: Clip.hardEdge,
+                              child: InkWell(
+                                splashColor: Colors.blue.withAlpha(30),
+                                onTap: () {
+                                  debugPrint('Card tapped.');
+                                },
+                                child: Container(
+                                  decoration: const BoxDecoration(
                                     borderRadius: BorderRadius.only(
                                         bottomRight: Radius.circular(16),
                                         bottomLeft: Radius.circular(40),
@@ -106,148 +107,150 @@ class SoulHomeScreen extends StatelessWidget {
                                           Color.fromARGB(255, 174, 83, 201),
                                           Color(0xff580970)
                                         ])),
-                                height: screenHeight * 0.31,
-                                width: screenWidth * 0.4,
-                                child: Center(
+                                  height: screenHeight * 0.31,
+                                  width: screenWidth * 0.4,
+                                  child: Center(
                                     child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Container(
-                                      decoration: const BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        color: Color(0xffC26BDD),
-                                      ),
-                                      padding: const EdgeInsets.all(7),
-                                      child: const Icon(
-                                        CupertinoIcons.mic,
-                                        size: 35,
-                                        color: Color(0xff360844),
-                                      ),
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: [
+                                        Container(
+                                          decoration: const BoxDecoration(
+                                            shape: BoxShape.circle,
+                                            color: Color(0xffC26BDD),
+                                          ),
+                                          padding: const EdgeInsets.all(7),
+                                          child: const Icon(
+                                            CupertinoIcons.mic,
+                                            size: 35,
+                                            color: Color(0xff360844),
+                                          ),
+                                        ),
+                                        const Text(
+                                          'Talk with SoulVoice',
+                                          style: TextStyle(
+                                              fontSize: 20,
+                                              color: Color.fromARGB(
+                                                  255, 255, 255, 255)),
+                                          textAlign: TextAlign.center,
+                                        ),
+                                      ],
                                     ),
-                                    const Text(
-                                      'Talk with SoulVoice',
-                                      style: TextStyle(
-                                          fontSize: 20,
-                                          color: Color.fromARGB(
-                                              255, 255, 255, 255)),
-                                      textAlign: TextAlign.center,
-                                    ),
-                                  ],
-                                )),
+                                  ),
+                                ),
                               ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                       SizedBox(
                         width: screenWidth * 0.01,
                       ),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Container(
-                            decoration: const BoxDecoration(
+                      Flexible(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Container(
+                              decoration: const BoxDecoration(
                                 borderRadius: BorderRadius.only(
                                     bottomRight: Radius.circular(16),
                                     bottomLeft: Radius.circular(16),
                                     topLeft: Radius.circular(16),
                                     topRight: Radius.circular(40)),
                                 gradient: LinearGradient(
-                                    begin: Alignment.topLeft,
-                                    end: Alignment.bottomRight,
-                                    colors: [
-                                      Color(0xffC4FFB2),
-                                      Color(0xff00C472)
-                                    ])),
-                            height: screenHeight * 0.15,
-                            width: screenWidth * 0.4,
-                            child: Center(
+                                  begin: Alignment.topLeft,
+                                  end: Alignment.bottomRight,
+                                  colors: [Color(0xffC4FFB2), Color(0xff00C472)],
+                                ),
+                              ),
+                              height: screenHeight * 0.15,
+                              width: screenWidth * 0.4,
+                              child: Center(
                                 child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Container(
-                                  decoration: const BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    color: Color(0xff17CB79),
-                                  ),
-                                  padding: const EdgeInsets.all(7),
-                                  child: const Icon(
-                                    CupertinoIcons.chat_bubble_fill,
-                                    size: 35,
-                                    color: Color(0xff360844),
-                                  ),
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Container(
+                                      decoration: const BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        color: Color(0xff17CB79),
+                                      ),
+                                      padding: const EdgeInsets.all(7),
+                                      child: const Icon(
+                                        CupertinoIcons.chat_bubble_fill,
+                                        size: 35,
+                                        color: Color(0xff360844),
+                                      ),
+                                    ),
+                                    const Text(
+                                      'Chat',
+                                      style: TextStyle(
+                                          fontSize: 20, color: Color(0xff360844)),
+                                    ),
+                                  ],
                                 ),
-                                const Text(
-                                  'Chat',
-                                  style: TextStyle(
-                                      fontSize: 20, color: Color(0xff360844)),
-                                ),
-                              ],
-                            )),
-                          ),
-                          SizedBox(
-                            height: screenHeight * 0.01,
-                          ),
-                          Container(
-                            decoration: const BoxDecoration(
+                              ),
+                            ),
+                            SizedBox(
+                              height: screenHeight * 0.01,
+                            ),
+                            Container(
+                              decoration: const BoxDecoration(
                                 borderRadius: BorderRadius.only(
                                     bottomRight: Radius.circular(40),
                                     bottomLeft: Radius.circular(16),
                                     topLeft: Radius.circular(16),
                                     topRight: Radius.circular(16)),
                                 gradient: LinearGradient(
-                                    begin: Alignment.topRight,
-                                    end: Alignment.bottomLeft,
-                                    colors: [
-                                      Color(0xffF0CB93),
-                                      Color(0xffE65D5D)
-                                    ])),
-                            height: screenHeight * 0.15,
-                            width: screenWidth * 0.4,
-                            child: Center(
+                                  begin: Alignment.topRight,
+                                  end: Alignment.bottomLeft,
+                                  colors: [Color(0xffF0CB93), Color(0xffE65D5D)],
+                                ),
+                              ),
+                              height: screenHeight * 0.15,
+                              width: screenWidth * 0.4,
+                              child: Center(
                                 child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Container(
-                                  decoration: const BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    color: Color(0xffECA681),
-                                  ),
-                                  padding: const EdgeInsets.all(7),
-                                  child: const Icon(
-                                    CupertinoIcons.graph_square_fill,
-                                    size: 35,
-                                    color: Color(0xff360844),
-                                  ),
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Container(
+                                      decoration: const BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        color: Color(0xffECA681),
+                                      ),
+                                      padding: const EdgeInsets.all(7),
+                                      child: const Icon(
+                                        CupertinoIcons.graph_square_fill,
+                                        size: 35,
+                                        color: Color(0xff360844),
+                                      ),
+                                    ),
+                                    const Text(
+                                      'Stats',
+                                      style: TextStyle(
+                                          fontSize: 20, color: Color(0xff360844)),
+                                    ),
+                                  ],
                                 ),
-                                const Text(
-                                  'Stats',
-                                  style: TextStyle(
-                                      fontSize: 20, color: Color(0xff360844)),
-                                ),
-                              ],
-                            )),
-                          ),
-                        ],
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ],
                   ),
-                ),
-                SizedBox(height: screenHeight * 0.03),
-                Text(
-                  'Recent History',
-                  style: TextStyle(
-                    fontSize: screenHeight * 0.025,
-                    // fontWeight: FontWeight.bold
+                  SizedBox(height: screenHeight * 0.03),
+                  Text(
+                    'Recent History',
+                    style: TextStyle(
+                      fontSize: screenHeight * 0.025,
+                    ),
                   ),
-                ),
-                SizedBox(height: screenHeight * 0.02),
-                Expanded(
-                  child: Padding(
+                  SizedBox(height: screenHeight * 0.02),
+                  Padding(
                     padding: EdgeInsets.only(
-                        bottom: screenHeight *
-                            0.05), // Add padding to avoid overflow
+                        bottom: screenHeight * 0.05),
                     child: ListView(
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
                       padding:
                           EdgeInsets.symmetric(horizontal: screenWidth * 0.05),
                       children: [
@@ -260,8 +263,8 @@ class SoulHomeScreen extends StatelessWidget {
                       ],
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ],
