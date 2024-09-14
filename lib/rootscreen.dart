@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:soul/homescreen.dart';
 import 'package:soul/profile_view.dart';
 import 'package:soul/soulspace.dart';
 import 'package:soul/soulvoice_view.dart';
-import 'package:soul/temp.dart';
 
 class SoulBotHome extends StatefulWidget {
   const SoulBotHome({super.key});

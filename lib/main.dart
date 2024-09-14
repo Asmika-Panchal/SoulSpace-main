@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:soul/home_view.dart';
+import 'package:soul/rootscreen.dart';
 
 //Start Point, to run app
 void main() {
