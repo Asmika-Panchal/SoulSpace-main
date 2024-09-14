@@ -1,6 +1,7 @@
 import 'dart:ui'; // Import for ImageFilter.blur
 
 import 'package:flutter/material.dart';
+import 'package:soul/screens/mood2.dart';
 
 class Mood1Screen extends StatelessWidget {
   const Mood1Screen({super.key});
@@ -121,9 +122,14 @@ class EmojiWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return InkWell(
       onTap: () {
-        // Handle emoji tap event
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const Mood2Screen(),
+          ),
+        );
       },
       child: Container(
         width: 60,

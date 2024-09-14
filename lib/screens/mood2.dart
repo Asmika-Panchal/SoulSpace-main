@@ -13,7 +13,7 @@ class Mood2Screen extends StatelessWidget {
       appBar: AppBar(
         leading: IconButton(
             onPressed: () => Navigator.pop(context),
-            icon: Icon(CupertinoIcons.chevron_back)),
+            icon: const Icon(CupertinoIcons.chevron_back)),
       ),
       body: Stack(
         children: [

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:soul/screens/mood1.dart';
 import 'package:soul/screens/question.dart';
 import 'package:soul/screens/reminder.dart';
 
@@ -15,7 +16,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   @override
   Widget build(BuildContext context) {
-    var isDarkMode = true;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.purple.shade700,
@@ -130,20 +130,21 @@ class _ProfileScreenState extends State<ProfileScreen> {
               child: ListView(
                 padding: const EdgeInsets.symmetric(horizontal: 30),
                 children: [
-                  buildSettingItem(
-                    icon: Icons.nights_stay,
-                    title: "Dark Mode",
-                    trailing: CupertinoSwitch(
-                      value: isDarkMode,
-                      onChanged: (value) {
-                        setState(() {
-                          isDarkMode = value;
-                        });
+                  InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const Mood1Screen(),
+                          ),
+                        );
                       },
-                      activeColor: Colors.purple,
-                    ),
-                  ),
-                 InkWell(
+                      child: buildSettingItem(
+                        icon: CupertinoIcons.cloud_sun_rain_fill,
+                        title: "Moods Entry",
+                        trailing: const Icon(CupertinoIcons.chevron_right),
+                      )),
+                  InkWell(
                     onTap: () {
                       Navigator.push(
                         context,
@@ -151,13 +152,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           builder: (context) => const Questions(),
                         ),
                       );
-                    }, 
-                 child: buildSettingItem(
-                    icon: Icons.credit_card,
-                    title: "Questionaire",
-                    trailing: const Icon(CupertinoIcons.question_circle),
+                    },
+                    child: buildSettingItem(
+                      icon: CupertinoIcons.question_circle,
+                      title: "Questionaire",
+                      trailing: const Icon(CupertinoIcons.chevron_right),
+                    ),
                   ),
-                 ),
                   buildSettingItem(
                     icon: Icons.person_outline,
                     title: "Profile Details",

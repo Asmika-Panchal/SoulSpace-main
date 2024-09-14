@@ -29,10 +29,10 @@ class MyApp extends StatelessWidget {
           brightness: Brightness.dark,
           primaryColor: CupertinoColors.activeBlue,
           fontFamily: 'Alice'),
-      // home: const SoulBotHome(),
+      home: const SoulBotHome(),
 
       // home: const Mood1Screen(),
-      home: const Mood2Screen(),
+      // home: const Mood2Screen(),
       // home: const Mood3Screen(),
       // home: const LoginScreen(),
       // home: SignUpScreen(),
