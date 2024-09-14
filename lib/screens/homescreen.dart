@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:soul/screens/soulspace.dart';
 import 'package:soul/screens/soulvoice_view.dart';
 import 'package:soul/screens/statsscreen.dart';
+import 'package:soul/screens/profile_view.dart'; // Import your ProfileScreen
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -74,10 +75,20 @@ class SoulHomeScreen extends StatelessWidget {
                             ],
                           ),
                         ),
-                        CircleAvatar(
-                          backgroundColor: Colors.white,
-                          radius: screenHeight * 0.04,
-                          child: Image.asset("assets/profile.png"),
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      const ProfileScreen()), // Navigate to ProfileScreen
+                            );
+                          },
+                          child: CircleAvatar(
+                            backgroundColor: Colors.white,
+                            radius: screenHeight * 0.04,
+                            child: Image.asset("assets/profile.png"),
+                          ),
                         ),
                       ],
                     ),

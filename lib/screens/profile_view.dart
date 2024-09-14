@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:soul/screens/question.dart';
+import 'package:soul/screens/reminder.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -13,8 +15,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // var screenHeight = MediaQuery.of(context).size.height;
-    // var screenWidth = MediaQuery.of(context).size.width;
     var isDarkMode = true;
     return Scaffold(
       appBar: AppBar(
@@ -23,7 +23,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
         elevation: 0,
         leading: IconButton(
           icon: const Icon(CupertinoIcons.back),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pop(context);
+          },
         ),
       ),
       body: Container(
@@ -34,24 +36,20 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 colors: [Color(0xff661080), Color(0xff2B0437)])),
         child: Column(
           children: [
-            // Profile Picture and Info
             Container(
               alignment: Alignment.center,
               padding: const EdgeInsets.symmetric(vertical: 20),
               child: Column(
                 children: [
-                  // Profile Picture
                   const CircleAvatar(
                     radius: 70,
                     backgroundColor: Colors.black,
                     child: CircleAvatar(
                       radius: 65,
-                      backgroundImage: AssetImage(
-                          'assets/profile.png'), // Replace with your image
+                      backgroundImage: AssetImage('assets/profile.png'),
                     ),
                   ),
                   const SizedBox(height: 15),
-                  // Profile Name
                   const Text(
                     "John Doe",
                     style: TextStyle(
@@ -60,7 +58,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       color: Colors.white,
                     ),
                   ),
-                  // Gold Member Status
                   isGoldMember
                       ? const Text(
                           "⚡ Gold Member",
@@ -77,8 +74,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ],
               ),
             ),
-
-            // Contact Details
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 30),
               child: Column(
@@ -130,10 +125,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ],
               ),
             ),
-
             const SizedBox(height: 30),
-
-            // Settings List
             Expanded(
               child: ListView(
                 padding: const EdgeInsets.symmetric(horizontal: 30),
@@ -151,20 +143,40 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       activeColor: Colors.purple,
                     ),
                   ),
-                  buildSettingItem(
+                 InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const Questions(),
+                        ),
+                      );
+                    }, 
+                 child: buildSettingItem(
                     icon: Icons.credit_card,
-                    title: "Cards",
-                    trailing: const Icon(CupertinoIcons.chevron_right),
+                    title: "Questionaire",
+                    trailing: const Icon(CupertinoIcons.question_circle),
                   ),
+                 ),
                   buildSettingItem(
                     icon: Icons.person_outline,
                     title: "Profile Details",
                     trailing: const Icon(CupertinoIcons.chevron_right),
                   ),
-                  buildSettingItem(
-                    icon: Icons.settings,
-                    title: "Settings & Reminders",
-                    trailing: const Icon(CupertinoIcons.chevron_right),
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const ReminderScreen(),
+                        ),
+                      );
+                    },
+                    child: buildSettingItem(
+                      icon: Icons.settings,
+                      title: "Settings & Reminders",
+                      trailing: const Icon(CupertinoIcons.chevron_right),
+                    ),
                   ),
                 ],
               ),
