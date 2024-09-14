@@ -1,5 +1,6 @@
 import 'dart:ui'; // Import for ImageFilter.blur
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:soul/screens/mood2.dart';
 
