@@ -104,26 +104,6 @@ class ChatScreen extends StatelessWidget {
           ],
         ),
       ]),
-      bottomNavigationBar: BottomAppBar(
-        color: Colors.black.withOpacity(0.3),
-        child: Padding(
-          padding: EdgeInsets.symmetric(vertical: screenHeight * 0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              _buildBottomNavItem(CupertinoIcons.home, false, 'Home', context),
-              _buildBottomNavItem(
-                  CupertinoIcons.chat_bubble_fill, true, 'Soulbot', context),
-              _buildBottomNavItem(
-                  CupertinoIcons.mic, false, 'SoulVoice', context),
-              _buildBottomNavItem(
-                  CupertinoIcons.graph_square_fill, false, 'Stats', context),
-              _buildBottomNavItem(
-                  CupertinoIcons.person, false, 'Profile', context),
-            ],
-          ),
-        ),
-      ),
     );
   }
 
