@@ -28,6 +28,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         brightness: Brightness.dark,
         primaryColor: CupertinoColors.activeBlue,
+         fontFamily: 'Alice'
       ),
       home: ProfileScreen(),
       //Here call the screen you want to
