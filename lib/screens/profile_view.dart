@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:soul/screens/mood1.dart';
 import 'package:soul/screens/question.dart';
 import 'package:soul/screens/reminder.dart';
 
@@ -130,19 +131,22 @@ class _ProfileScreenState extends State<ProfileScreen> {
               child: ListView(
                 padding: const EdgeInsets.symmetric(horizontal: 30),
                 children: [
-                  buildSettingItem(
-                    icon: Icons.nights_stay,
-                    title: "Dark Mode",
-                    trailing: CupertinoSwitch(
-                      value: isDarkMode,
-                      onChanged: (value) {
-                        setState(() {
-                          isDarkMode = value;
-                        });
-                      },
-                      activeColor: Colors.purple,
-                    ),
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const Mood1Screen(),
+                        ),
+                      );
+                    }, 
+                 child: buildSettingItem(
+                   icon: Icons.person_outline,
+                    title: "😊Mood Entry",
+                    trailing: const Icon(CupertinoIcons.gauge)
                   ),
+                ),
+                  
                  InkWell(
                     onTap: () {
                       Navigator.push(
