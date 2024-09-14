@@ -1,5 +1,6 @@
 import 'dart:ui'; // Import for ImageFilter.blur
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:soul/screens/mood2.dart';
 
@@ -9,6 +10,11 @@ class Mood1Screen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+            onPressed: () => Navigator.pop(context),
+            icon: const Icon(CupertinoIcons.chevron_back)),
+      ),
       body: Stack(
         children: [
           // Background Image with Blur Effect

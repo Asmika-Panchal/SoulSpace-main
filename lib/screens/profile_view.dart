@@ -24,7 +24,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         leading: IconButton(
           icon: const Icon(CupertinoIcons.back),
           onPressed: () {
-            Navigator.pop(context);
+            // Navigator.pop(context);
           },
         ),
       ),
