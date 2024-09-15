@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:soul/screens/homescreen.dart';
+import 'package:soul/screens/homescreen.dart';
 
 class Mood3Screen extends StatefulWidget {
   const Mood3Screen({super.key});
@@ -96,7 +97,7 @@ class _Mood3ScreenState extends State<Mood3Screen> {
                   ),
                 ),
                 const SizedBox(height: 50), // Space outside the rectangle
-                // Selected Mood Display
+                // Selected Trigger Display
                 if (selectedTrigger.isNotEmpty)
                   Container(
                     margin: const EdgeInsets.only(left: 16, right: 16, bottom: 35),
@@ -113,9 +114,9 @@ class _Mood3ScreenState extends State<Mood3Screen> {
               ],
             ),
           ),
-          // Skip button at the bottom-right corner
+          // Skip button at the bottom-left corner
           Align(
-            alignment: Alignment.bottomRight,
+            alignment: Alignment.bottomLeft,
             child: Padding(
               padding: const EdgeInsets.all(16.0), // Adds some space from the edges
               child: ElevatedButton.icon(
@@ -140,6 +141,42 @@ class _Mood3ScreenState extends State<Mood3Screen> {
               ),
             ),
           ),
+          // Next button at the bottom-right corner
+          if (selectedTrigger.isNotEmpty)
+            Align(
+              alignment: Alignment.bottomRight,
+              child: Padding(
+                padding: const EdgeInsets.all(16.0), // Adds some space from the edges
+                child: InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const SoulHomeScreen(), // Navigate to SoulHomeScreen
+                      ),
+                    );
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: const Color.fromARGB(255, 54, 220, 235), // Custom background color
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                    padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 10),
+                    child: const Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(
+                          "Next",
+                          style: TextStyle(color: Colors.black, fontSize: 18, fontWeight: FontWeight.bold), // Text for "Next"
+                        ),
+                        SizedBox(width: 8),
+                        Icon(Icons.arrow_forward, color: Colors.black), // Icon with black color
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
         ],
       ),
     );

@@ -113,9 +113,9 @@ class _Mood2ScreenState extends State<Mood2Screen> {
               ],
             ),
           ),
-          // Skip button at the bottom-right corner
+          // Skip button at the bottom-left corner
           Align(
-            alignment: Alignment.bottomRight,
+            alignment: Alignment.bottomLeft,
             child: Padding(
               padding: const EdgeInsets.all(16.0), // Adds some space from the edges
               child: InkWell(
@@ -148,6 +148,42 @@ class _Mood2ScreenState extends State<Mood2Screen> {
               ),
             ),
           ),
+          // Next button at the bottom-right corner
+          if (selectedFeel.isNotEmpty)
+            Align(
+              alignment: Alignment.bottomRight,
+              child: Padding(
+                padding: const EdgeInsets.all(16.0), // Adds some space from the edges
+                child: InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const Mood3Screen(), // Navigate to Mood3Screen
+                      ),
+                    );
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: const Color.fromARGB(255, 54, 220, 235), // Custom background color
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                    padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 10),
+                    child: const Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(
+                          "Next",
+                          style: TextStyle(color: Colors.black, fontSize: 18, fontWeight: FontWeight.bold), // Text for "Next"
+                        ),
+                        SizedBox(width: 8),
+                        Icon(Icons.arrow_forward, color: Colors.black), // Icon with black color
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
         ],
       ),
     );
