@@ -59,7 +59,7 @@ class _SoulBotHomeState extends State<SoulBotHome> {
               CupertinoIcons.mic_fill,
               color: currentPageIndex == 3 ? Colors.deepPurple : Colors.white,
             ),
-            title: "SoulVoice",
+            title: "Voice",
           ),
           TabItem(
             icon: Icon(
@@ -74,7 +74,7 @@ class _SoulBotHomeState extends State<SoulBotHome> {
             currentPageIndex = index;
           });
         },
-        shadowColor: Colors.deepPurpleAccent,
+        shadowColor: const Color.fromARGB(255, 14, 14, 14),
         backgroundColor: Colors.deepPurple,
       ),
       body: _screens[currentPageIndex],
