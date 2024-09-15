@@ -155,8 +155,7 @@ class _Mood1ScreenState extends State<Mood1Screen> {
                 },
                 child: Container(
                   decoration: BoxDecoration(
-                    color: const Color.fromARGB(
-                        255, 139, 38, 38), // Custom background color
+                    color: const Color.fromARGB(255, 222, 146, 64), // Custom background color
                     borderRadius: BorderRadius.circular(30),
                   ),
                   padding:
