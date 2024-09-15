@@ -87,7 +87,7 @@ class _Mood1ScreenState extends State<Mood1Screen> {
                   // Dropdown menu for mood selection
                   DropdownButton<String>(
                     value: selectedMood,
-                    borderRadius: BorderRadius.all(
+                    borderRadius: const BorderRadius.all(
                         Radius.circular(20)), // Rounded corners
                     dropdownColor: const Color.fromARGB(
                         255, 45, 36, 36), // Background color of dropdown

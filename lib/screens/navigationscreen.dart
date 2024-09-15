@@ -1,7 +1,8 @@
+import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:soul/screens/homescreen.dart';
-import 'package:soul/screens/profile_view.dart';
+import 'package:soul/screens/mood1.dart';
 import 'package:soul/screens/soulspace.dart';
 import 'package:soul/screens/soulvoice_view.dart';
 import 'package:soul/screens/statsscreen.dart';
@@ -18,9 +19,9 @@ class _SoulBotHomeState extends State<SoulBotHome> {
   final List<Widget> _screens = [
     const SoulHomeScreen(),
     const ChatScreen(),
+    const Mood1Screen(),
     const SoulVoiceScreen(),
     const Statsscreen(),
-    const ProfileScreen(),
   ];
   @override
   Widget build(BuildContext context) {
@@ -29,31 +30,52 @@ class _SoulBotHomeState extends State<SoulBotHome> {
 
     return Scaffold(
       // body:
-      bottomNavigationBar: NavigationBar(
-        onDestinationSelected: (int index) {
+      bottomNavigationBar: ConvexAppBar(
+        // const <int, dynamic>{1: '3+'}, //new msgs (index, number)
+        items: [
+          TabItem(
+            icon: Icon(
+              CupertinoIcons.home,
+              color: currentPageIndex == 0 ? Colors.deepPurple : Colors.white,
+            ),
+            title: "Home",
+          ),
+          TabItem(
+            icon: Icon(
+              CupertinoIcons.chat_bubble_fill,
+              color: currentPageIndex == 1 ? Colors.deepPurple : Colors.white,
+            ),
+            title: "SoulBot",
+          ),
+          TabItem(
+            icon: Icon(
+              CupertinoIcons.add,
+              color: currentPageIndex == 2 ? Colors.deepPurple : Colors.white,
+            ),
+            title: "Moods",
+          ),
+          TabItem(
+            icon: Icon(
+              CupertinoIcons.mic_fill,
+              color: currentPageIndex == 3 ? Colors.deepPurple : Colors.white,
+            ),
+            title: "SoulVoice",
+          ),
+          TabItem(
+            icon: Icon(
+              CupertinoIcons.graph_square_fill,
+              color: currentPageIndex == 4 ? Colors.deepPurple : Colors.white,
+            ),
+            title: "Stats",
+          ),
+        ],
+        onTap: (int index) {
           setState(() {
             currentPageIndex = index;
           });
         },
-        animationDuration: Duration(milliseconds: 800),
-        indicatorColor: Colors.deepPurple,
-        backgroundColor: const Color.fromARGB(255, 46, 5, 53),
-        indicatorShape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16), // Makes it rounder
-        ),
-        labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
-        selectedIndex: currentPageIndex,
-        destinations: const [
-          NavigationDestination(icon: Icon(CupertinoIcons.home), label: "Home"),
-          NavigationDestination(
-              icon: Icon(CupertinoIcons.chat_bubble_fill), label: "SoulBot"),
-          NavigationDestination(
-              icon: Icon(CupertinoIcons.mic_fill), label: "SoulVoice"),
-          NavigationDestination(
-              icon: Icon(CupertinoIcons.graph_square_fill), label: "Stats"),
-          NavigationDestination(
-              icon: Icon(CupertinoIcons.profile_circled), label: "Profile"),
-        ],
+        shadowColor: Colors.deepPurpleAccent,
+        backgroundColor: Colors.deepPurple,
       ),
       body: _screens[currentPageIndex],
     );
