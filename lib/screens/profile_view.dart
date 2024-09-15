@@ -41,12 +41,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
               padding: const EdgeInsets.symmetric(vertical: 20),
               child: Column(
                 children: [
-                  const CircleAvatar(
-                    radius: 70,
-                    backgroundColor: Colors.black,
+                  const Hero(
+                    tag: "my-hero-animation-tag",
                     child: CircleAvatar(
-                      radius: 65,
-                      backgroundImage: AssetImage('assets/profile.png'),
+                      radius: 70,
+                      backgroundColor: Colors.black,
+                      child: CircleAvatar(
+                        radius: 65,
+                        backgroundImage: AssetImage('assets/profile.png'),
+                      ),
                     ),
                   ),
                   const SizedBox(height: 15),
@@ -145,7 +148,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       trailing: const Icon(CupertinoIcons.gauge),
                     ),
                   ),
-                 InkWell(
+                  InkWell(
                     onTap: () {
                       Navigator.push(
                         context,

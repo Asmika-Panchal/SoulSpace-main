@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
 import 'package:gif/gif.dart';
@@ -72,7 +73,7 @@ class _SoulVoiceScreenState extends State<SoulVoiceScreen>
                 Gif(
                   autostart: Autostart.loop,
                   placeholder: (context) =>
-                      const Center(child: CircularProgressIndicator()),
+                      const Center(child: Icon(CupertinoIcons.mic_circle_fill)),
                   image: const AssetImage('assets/mic.gif'),
                 ),
                 const SizedBox(height: 30),

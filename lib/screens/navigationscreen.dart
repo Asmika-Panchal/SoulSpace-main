@@ -35,16 +35,16 @@ class _SoulBotHomeState extends State<SoulBotHome> {
             currentPageIndex = index;
           });
         },
+        animationDuration: Duration(milliseconds: 800),
         indicatorColor: Colors.deepPurple,
+        backgroundColor: const Color.fromARGB(255, 46, 5, 53),
+        indicatorShape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(16), // Makes it rounder
+        ),
+        labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
         selectedIndex: currentPageIndex,
         destinations: const [
-          NavigationDestination(
-              selectedIcon: Icon(
-                CupertinoIcons.home,
-                color: Colors.white,
-              ),
-              icon: Icon(CupertinoIcons.home),
-              label: "Home"),
+          NavigationDestination(icon: Icon(CupertinoIcons.home), label: "Home"),
           NavigationDestination(
               icon: Icon(CupertinoIcons.chat_bubble_fill), label: "SoulBot"),
           NavigationDestination(

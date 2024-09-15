@@ -93,28 +93,33 @@ class Mood2Screen extends StatelessWidget {
           Align(
             alignment: Alignment.bottomRight,
             child: Padding(
-              padding: const EdgeInsets.all(16.0), // Adds some space from the edges
+              padding:
+                  const EdgeInsets.all(16.0), // Adds some space from the edges
               child: InkWell(
                 onTap: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const Mood3Screen(), // Navigate to Mood2Screen
+                      builder: (context) =>
+                          const Mood3Screen(), // Navigate to Mood2Screen
                     ),
                   );
                 },
                 child: Container(
                   decoration: BoxDecoration(
-                    color: const Color.fromARGB(255, 139, 38, 38), // Custom background color
+                    color: const Color.fromARGB(
+                        255, 139, 38, 38), // Custom background color
                     borderRadius: BorderRadius.circular(30),
                   ),
-                  padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 12),
-                  child: Row(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 32, vertical: 12),
+                  child: const Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      const Icon(Icons.arrow_forward, color: Colors.black), // Icon with black color
-                      const SizedBox(width: 8),
-                      const Text(
+                      Icon(Icons.arrow_forward,
+                          color: Colors.black), // Icon with black color
+                      SizedBox(width: 8),
+                      Text(
                         "Skip",
                         style: TextStyle(
                           color: Colors.black, // Black text for "Skip"

@@ -2,10 +2,10 @@ import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:soul/screens/profile_view.dart'; // Import your ProfileScreen
 import 'package:soul/screens/soulspace.dart';
 import 'package:soul/screens/soulvoice_view.dart';
 import 'package:soul/screens/statsscreen.dart';
-import 'package:soul/screens/profile_view.dart'; // Import your ProfileScreen
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -84,10 +84,13 @@ class SoulHomeScreen extends StatelessWidget {
                                       const ProfileScreen()), // Navigate to ProfileScreen
                             );
                           },
-                          child: CircleAvatar(
-                            backgroundColor: Colors.white,
-                            radius: screenHeight * 0.04,
-                            child: Image.asset("assets/profile.png"),
+                          child: Hero(
+                            tag: "my-hero-animation-tag",
+                            child: CircleAvatar(
+                              backgroundColor: Colors.white,
+                              radius: screenHeight * 0.04,
+                              child: Image.asset("assets/profile.png"),
+                            ),
                           ),
                         ),
                       ],

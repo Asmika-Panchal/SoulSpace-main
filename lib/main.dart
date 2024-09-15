@@ -30,7 +30,6 @@ class MyApp extends StatelessWidget {
           primaryColor: CupertinoColors.activeBlue,
           fontFamily: 'Alice'),
       home: const SoulBotHome(),
-
       // home: const Mood1Screen(),
       // home: const Mood2Screen(),
       // home: const Mood3Screen(),

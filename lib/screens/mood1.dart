@@ -40,12 +40,14 @@ class _Mood1ScreenState extends State<Mood1Screen> {
           Container(
             decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/mood_1.webp'), // Add your background image here
+                image: AssetImage(
+                    'assets/mood_1.webp'), // Add your background image here
                 fit: BoxFit.cover,
               ),
             ),
             child: BackdropFilter(
-              filter: ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0), // Apply blur to background
+              filter: ImageFilter.blur(
+                  sigmaX: 5.0, sigmaY: 5.0), // Apply blur to background
               child: Container(
                 decoration: BoxDecoration(
                   color: Colors.white.withOpacity(0.0), // Transparent overlay
@@ -58,11 +60,14 @@ class _Mood1ScreenState extends State<Mood1Screen> {
           Center(
             child: Container(
               decoration: BoxDecoration(
-                color: const Color.fromARGB(255, 45, 36, 36).withOpacity(0.5), // Black color with 50% opacity
+                color: const Color.fromARGB(255, 45, 36, 36)
+                    .withOpacity(0.5), // Black color with 50% opacity
                 borderRadius: BorderRadius.circular(10), // Rounded corners
               ),
-              padding: const EdgeInsets.all(20.0), // Padding inside the black tray
-              margin: const EdgeInsets.symmetric(horizontal: 20.0), // Margin to provide space on the sides
+              padding:
+                  const EdgeInsets.all(20.0), // Padding inside the black tray
+              margin: const EdgeInsets.symmetric(
+                  horizontal: 20.0), // Margin to provide space on the sides
               child: Column(
                 mainAxisSize: MainAxisSize.min, // Minimize height to content
                 children: [
@@ -76,27 +81,56 @@ class _Mood1ScreenState extends State<Mood1Screen> {
                     ),
                     textAlign: TextAlign.center,
                   ),
-                  const SizedBox(height: 20), // Space between the text and dropdown
+                  const SizedBox(
+                      height: 20), // Space between the text and dropdown
 
                   // Dropdown menu for mood selection
                   DropdownButton<String>(
                     value: selectedMood,
+                    borderRadius: BorderRadius.all(
+                        Radius.circular(20)), // Rounded corners
+                    dropdownColor: const Color.fromARGB(
+                        255, 45, 36, 36), // Background color of dropdown
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500, // Improved font style
+                    ),
+                    icon: const Icon(
+                      Icons.arrow_drop_down,
+                      color: Colors.white, // Custom icon color
+                      size: 28, // Larger icon size
+                    ),
+                    underline: Container(
+                      height: 2,
+                      color: const Color.fromARGB(
+                          255, 255, 255, 255), // Custom underline color
+                    ),
                     onChanged: (String? newValue) {
                       setState(() {
                         selectedMood = newValue!;
                       });
                     },
-                    items: moods.map((String mood) {
+                    items: moods.map<DropdownMenuItem<String>>((String mood) {
                       return DropdownMenuItem<String>(
+                        alignment: Alignment.center, // Centered text
                         value: mood,
-                        child: Text(
-                          mood,
-                          style: const TextStyle(color: Colors.white),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 10.0,
+                              horizontal: 20.0), // Padding inside dropdown
+                          child: Text(
+                            mood,
+                            style: const TextStyle(
+                              color: Colors.white, // Text color
+                              fontSize: 16, // Text size
+                              fontWeight: FontWeight
+                                  .bold, // Bold text for better appearance
+                            ),
+                          ),
                         ),
                       );
                     }).toList(),
-                    dropdownColor: const Color.fromARGB(255, 45, 36, 36), // Dropdown background color
-                    style: const TextStyle(color: Colors.white),
                   ),
                 ],
               ),
@@ -107,28 +141,33 @@ class _Mood1ScreenState extends State<Mood1Screen> {
           Align(
             alignment: Alignment.bottomRight,
             child: Padding(
-              padding: const EdgeInsets.all(16.0), // Adds some space from the edges
+              padding:
+                  const EdgeInsets.all(16.0), // Adds some space from the edges
               child: InkWell(
                 onTap: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const Mood2Screen(), // Navigate to Mood2Screen
+                      builder: (context) =>
+                          const Mood2Screen(), // Navigate to Mood2Screen
                     ),
                   );
                 },
                 child: Container(
                   decoration: BoxDecoration(
-                    color: const Color.fromARGB(255, 139, 38, 38), // Custom background color
+                    color: const Color.fromARGB(
+                        255, 139, 38, 38), // Custom background color
                     borderRadius: BorderRadius.circular(30),
                   ),
-                  padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 12),
-                  child: Row(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 32, vertical: 12),
+                  child: const Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      const Icon(Icons.arrow_forward, color: Colors.black), // Icon with black color
-                      const SizedBox(width: 8),
-                      const Text(
+                      Icon(Icons.arrow_forward,
+                          color: Colors.black), // Icon with black color
+                      SizedBox(width: 8),
+                      Text(
                         "Skip",
                         style: TextStyle(
                           color: Colors.black, // Black text for "Skip"
