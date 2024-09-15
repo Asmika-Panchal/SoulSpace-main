@@ -3,7 +3,6 @@ import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:soul/screens/homescreen.dart';
-import 'package:soul/screens/homescreen.dart';
 
 class Mood3Screen extends StatefulWidget {
   const Mood3Screen({super.key});
@@ -41,7 +40,8 @@ class _Mood3ScreenState extends State<Mood3Screen> {
               ),
             ),
             child: BackdropFilter(
-              filter: ImageFilter.blur(sigmaX: 3.0, sigmaY: 3.0), // Apply blur to background
+              filter: ImageFilter.blur(
+                  sigmaX: 3.0, sigmaY: 3.0), // Apply blur to background
               child: Container(
                 decoration: BoxDecoration(
                   color: Colors.white.withOpacity(0.0), // Transparent overlay
@@ -60,12 +60,15 @@ class _Mood3ScreenState extends State<Mood3Screen> {
               children: [
                 // Tray (Black Rectangle)
                 Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 20), // Adds margin around the black tray
+                  margin: const EdgeInsets.symmetric(
+                      horizontal: 20), // Adds margin around the black tray
                   decoration: BoxDecoration(
-                    color: Colors.black.withOpacity(0.5), // Black color with 50% opacity
+                    color: Colors.black
+                        .withOpacity(0.5), // Black color with 50% opacity
                     borderRadius: BorderRadius.circular(10), // Rounded corners
                   ),
-                  padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 18.0),
+                  padding: const EdgeInsets.symmetric(
+                      vertical: 16.0, horizontal: 18.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
@@ -79,17 +82,34 @@ class _Mood3ScreenState extends State<Mood3Screen> {
                         textAlign: TextAlign.center,
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(top: 30.0), // Margin to space between text and mood options
+                        padding: const EdgeInsets.only(
+                            top:
+                                30.0), // Margin to space between text and mood options
                         child: Wrap(
                           alignment: WrapAlignment.center,
                           spacing: 20.0, // Space between buttons
                           runSpacing: 20.0, // Space between rows
                           children: [
-                            MoodButton(text: 'Conflict', isSelected: selectedTrigger == 'Conflict', onTriggerSelected: onTriggerSelected),
-                            MoodButton(text: 'Stress', isSelected: selectedTrigger == 'Stress', onTriggerSelected: onTriggerSelected),
-                            MoodButton(text: 'Food', isSelected: selectedTrigger == 'Food', onTriggerSelected: onTriggerSelected),
-                            MoodButton(text: 'Work', isSelected: selectedTrigger == 'Work', onTriggerSelected: onTriggerSelected),
-                            MoodButton(text: 'Family', isSelected: selectedTrigger == 'Family', onTriggerSelected: onTriggerSelected),
+                            MoodButton(
+                                text: 'Conflict',
+                                isSelected: selectedTrigger == 'Conflict',
+                                onTriggerSelected: onTriggerSelected),
+                            MoodButton(
+                                text: 'Stress',
+                                isSelected: selectedTrigger == 'Stress',
+                                onTriggerSelected: onTriggerSelected),
+                            MoodButton(
+                                text: 'Food',
+                                isSelected: selectedTrigger == 'Food',
+                                onTriggerSelected: onTriggerSelected),
+                            MoodButton(
+                                text: 'Work',
+                                isSelected: selectedTrigger == 'Work',
+                                onTriggerSelected: onTriggerSelected),
+                            MoodButton(
+                                text: 'Family',
+                                isSelected: selectedTrigger == 'Family',
+                                onTriggerSelected: onTriggerSelected),
                           ],
                         ),
                       ),
@@ -100,7 +120,8 @@ class _Mood3ScreenState extends State<Mood3Screen> {
                 // Selected Trigger Display
                 if (selectedTrigger.isNotEmpty)
                   Container(
-                    margin: const EdgeInsets.only(left: 16, right: 16, bottom: 35),
+                    margin:
+                        const EdgeInsets.only(left: 16, right: 16, bottom: 35),
                     padding: const EdgeInsets.all(16),
                     decoration: BoxDecoration(
                       color: Colors.black.withOpacity(0.6),
@@ -108,7 +129,10 @@ class _Mood3ScreenState extends State<Mood3Screen> {
                     ),
                     child: Text(
                       'Selected: $selectedTrigger',
-                      style: const TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
+                      style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold),
                     ),
                   ),
               ],
@@ -118,25 +142,32 @@ class _Mood3ScreenState extends State<Mood3Screen> {
           Align(
             alignment: Alignment.bottomLeft,
             child: Padding(
-              padding: const EdgeInsets.all(16.0), // Adds some space from the edges
+              padding:
+                  const EdgeInsets.all(16.0), // Adds some space from the edges
               child: ElevatedButton.icon(
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const HomeScreen()), // Navigate to HomeScreen
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            const HomeScreen()), // Navigate to HomeScreen
                   );
                 },
-                icon: const Icon(Icons.arrow_forward, color: Colors.black), // Icon with black color
+                icon: const Icon(Icons.arrow_forward,
+                    color: Colors.black), // Icon with black color
                 label: const Text(
                   "Skip",
-                  style: TextStyle(color: Colors.black), // Black text for "Skip"
+                  style:
+                      TextStyle(color: Colors.black), // Black text for "Skip"
                 ),
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color.fromARGB(255, 222, 146, 64), // Custom background color
+                  backgroundColor: const Color.fromARGB(
+                      255, 222, 146, 64), // Custom background color
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(30),
                   ),
-                  padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 12),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 32, vertical: 12),
                 ),
               ),
             ),
@@ -146,31 +177,39 @@ class _Mood3ScreenState extends State<Mood3Screen> {
             Align(
               alignment: Alignment.bottomRight,
               child: Padding(
-                padding: const EdgeInsets.all(16.0), // Adds some space from the edges
+                padding: const EdgeInsets.all(
+                    16.0), // Adds some space from the edges
                 child: InkWell(
                   onTap: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const SoulHomeScreen(), // Navigate to SoulHomeScreen
+                        builder: (context) =>
+                            const SoulHomeScreen(), // Navigate to SoulHomeScreen
                       ),
                     );
                   },
                   child: Container(
                     decoration: BoxDecoration(
-                      color: const Color.fromARGB(255, 54, 220, 235), // Custom background color
+                      color: const Color.fromARGB(
+                          255, 54, 220, 235), // Custom background color
                       borderRadius: BorderRadius.circular(30),
                     ),
-                    padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 10),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 32, vertical: 10),
                     child: const Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Text(
                           "Next",
-                          style: TextStyle(color: Colors.black, fontSize: 18, fontWeight: FontWeight.bold), // Text for "Next"
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold), // Text for "Next"
                         ),
                         SizedBox(width: 8),
-                        Icon(Icons.arrow_forward, color: Colors.black), // Icon with black color
+                        Icon(Icons.arrow_forward,
+                            color: Colors.black), // Icon with black color
                       ],
                     ),
                   ),
@@ -208,7 +247,8 @@ class MoodButton extends StatelessWidget {
               ? const Color.fromARGB(255, 207, 47, 82)
               : Colors.transparent, // Transparent background for unselected
           border: Border.all(
-            color: const Color.fromARGB(255, 130, 127, 127).withOpacity(0.5), // Slightly black border for unselected buttons
+            color: const Color.fromARGB(255, 130, 127, 127).withOpacity(
+                0.5), // Slightly black border for unselected buttons
             width: 2,
           ),
           borderRadius: BorderRadius.circular(20.0),

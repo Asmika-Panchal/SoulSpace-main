@@ -8,10 +8,10 @@ class Mood1Screen extends StatefulWidget {
   const Mood1Screen({super.key});
 
   @override
-  _Mood1ScreenState createState() => _Mood1ScreenState();
+  Mood1ScreenState createState() => Mood1ScreenState();
 }
 
-class _Mood1ScreenState extends State<Mood1Screen> {
+class Mood1ScreenState extends State<Mood1Screen> {
   String selectedMood = '😊 Happy'; // Default mood with both emoji and label
 
   final List<String> moods = [
@@ -155,7 +155,8 @@ class _Mood1ScreenState extends State<Mood1Screen> {
                 },
                 child: Container(
                   decoration: BoxDecoration(
-                    color: const Color.fromARGB(255, 222, 146, 64), // Custom background color
+                    color: const Color.fromARGB(
+                        255, 222, 146, 64), // Custom background color
                     borderRadius: BorderRadius.circular(30),
                   ),
                   padding:
