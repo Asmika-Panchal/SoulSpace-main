@@ -11,10 +11,11 @@ class Mood1Screen extends StatefulWidget {
   Mood1ScreenState createState() => Mood1ScreenState();
 }
 
-class Mood1ScreenState extends State<Mood1Screen> {
+class _Mood1ScreenState extends State<Mood1Screen> {
   String selectedMood = '😊 Happy'; // Default mood with both emoji and label
 
   final List<String> moods = [
+    '--select--',
     '😊 Happy',
     '😢 Sad',
     '😠 Angry',
@@ -22,8 +23,11 @@ class Mood1ScreenState extends State<Mood1Screen> {
     '😂 Laughing',
     '😭 Crying',
     '😰 Anxious',
-    '😡 Frustrated',
-    // Add more moods as needed
+    '😡 Enraged',
+    '😐 Neutral',
+    '😫 Tired',
+    '😨 Fearful',
+    '😤 Frustrated',
   ];
 
   @override
@@ -137,9 +141,9 @@ class Mood1ScreenState extends State<Mood1Screen> {
             ),
           ),
 
-          // Skip button at the bottom-right corner with InkWell
+          // Skip button at the bottom-left corner with InkWell
           Align(
-            alignment: Alignment.bottomRight,
+            alignment: Alignment.bottomLeft,
             child: Padding(
               padding:
                   const EdgeInsets.all(16.0), // Adds some space from the edges
@@ -179,6 +183,49 @@ class Mood1ScreenState extends State<Mood1Screen> {
               ),
             ),
           ),
+
+          // Next button at the bottom-right corner with InkWell
+          if (selectedMood != '--select--')
+            Align(
+              alignment: Alignment.bottomRight,
+              child: Padding(
+                padding:
+                    const EdgeInsets.all(16.0), // Adds some space from the edges
+                child: InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            const Mood2Screen(), // Navigate to Mood2Screen
+                      ),
+                    );
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: const Color.fromARGB(255, 54, 220, 235), // Custom background color
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 32, vertical: 12),
+                    child: const Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Icon(Icons.arrow_forward,
+                            color: Colors.black), // Icon with black color
+                        SizedBox(width: 8),
+                        Text(
+                          "Next",
+                          style: TextStyle(
+                            color: Colors.black, // Black text for "Next"
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
         ],
       ),
     );
