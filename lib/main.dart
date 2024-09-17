@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
           brightness: Brightness.dark,
           primaryColor: CupertinoColors.activeBlue,
-          fontFamily: 'Alice'),
+          fontFamily: 'Quicksand'),
       home: const SoulBotHome(),
       // home: const Mood1Screen(),
       // home: const Mood2Screen(),

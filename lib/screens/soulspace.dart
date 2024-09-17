@@ -10,7 +10,7 @@ class ChatScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // var screenHeight = MediaQuery.of(context).size.height;
+    var screenHeight = MediaQuery.of(context).size.height;
     // var screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
@@ -40,7 +40,7 @@ class ChatScreen extends StatelessWidget {
           child: BackdropFilter(
             filter: ImageFilter.blur(sigmaX: 3.0, sigmaY: 3.0),
             child: Container(
-              decoration: BoxDecoration(color: Colors.black.withOpacity(0.4)),
+              decoration: BoxDecoration(color: Colors.black.withOpacity(0.5)),
             ),
           ),
         ),
@@ -54,10 +54,11 @@ class ChatScreen extends StatelessWidget {
                 ),
               ),
               child: BackdropFilter(
-                filter: ImageFilter.blur(sigmaX: 3.0, sigmaY: 3.0),
+                filter: ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
                 child: Container(
-                  decoration:
-                      BoxDecoration(color: Colors.white.withOpacity(0.0)),
+                  decoration: BoxDecoration(
+                      color:
+                          const Color.fromARGB(255, 0, 0, 0).withOpacity(0.4)),
                 ),
               ),
             ),
@@ -103,6 +104,9 @@ class ChatScreen extends StatelessWidget {
                 ],
               ),
             ),
+            SizedBox(
+              height: screenHeight * 0.015,
+            )
           ],
         ),
       ]),
@@ -134,8 +138,9 @@ class ChatScreen extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.all(16),
         decoration: const BoxDecoration(
-          gradient:
-              LinearGradient(colors: [Color(0xff860EAA), Color(0xff360644)]),
+          // gradient:
+          //     LinearGradient(colors: [Color(0xff860EAA), Color(0xff360644)]),
+          color: Color(0xFFCC4499),
           borderRadius: BorderRadius.only(
               topLeft: Radius.circular(20),
               topRight: Radius.circular(0),
@@ -144,7 +149,8 @@ class ChatScreen extends StatelessWidget {
         ),
         child: Text(
           message,
-          style: const TextStyle(color: Colors.white),
+          style:
+              const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
       ),
     );
@@ -174,7 +180,8 @@ class ChatScreen extends StatelessWidget {
         ),
         child: Text(
           message,
-          style: const TextStyle(color: Colors.white),
+          style:
+              const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
       ),
     );

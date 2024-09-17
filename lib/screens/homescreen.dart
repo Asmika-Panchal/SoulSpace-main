@@ -63,9 +63,9 @@ class SoulHomeScreen extends StatelessWidget {
                               Text(
                                 'Hello, John',
                                 style: TextStyle(
-                                  fontSize: screenHeight * 0.045,
-                                  color: Colors.white,
-                                ),
+                                    fontSize: screenHeight * 0.045,
+                                    color: Colors.white,
+                                    fontFamily: 'Alice'),
                               ),
                               Text(
                                 'How can I assist you right now?',
@@ -141,7 +141,8 @@ class SoulHomeScreen extends StatelessWidget {
                                     style: TextStyle(
                                         fontSize: 20,
                                         color:
-                                            Color.fromARGB(255, 255, 255, 255)),
+                                            Color.fromARGB(255, 255, 255, 255),
+                                        fontWeight: FontWeight.bold),
                                     textAlign: TextAlign.center,
                                   ),
                                 ],
@@ -200,7 +201,9 @@ class SoulHomeScreen extends StatelessWidget {
                                   const Text(
                                     'Chat',
                                     style: TextStyle(
-                                        fontSize: 20, color: Color(0xff512E5F)),
+                                        fontSize: 20,
+                                        color: Color(0xff512E5F),
+                                        fontWeight: FontWeight.bold),
                                   ),
                                 ],
                               )),
@@ -252,7 +255,9 @@ class SoulHomeScreen extends StatelessWidget {
                                   const Text(
                                     'Stats',
                                     style: TextStyle(
-                                        fontSize: 20, color: Color(0xff512E5F)),
+                                        fontSize: 20,
+                                        color: Color(0xff512E5F),
+                                        fontWeight: FontWeight.bold),
                                   ),
                                 ],
                               )),
@@ -273,8 +278,7 @@ class SoulHomeScreen extends StatelessWidget {
                   Text(
                     'Recent History',
                     style: TextStyle(
-                      fontSize: screenHeight * 0.025,
-                    ),
+                        fontSize: screenHeight * 0.025, fontFamily: 'Alice'),
                   ),
                   SizedBox(height: screenHeight * 0.02),
                   Padding(
@@ -324,7 +328,10 @@ class SoulHomeScreen extends StatelessWidget {
               children: [
                 Text(
                   label,
-                  style: const TextStyle(color: Colors.black87, fontSize: 16),
+                  style: const TextStyle(
+                      color: Colors.black87,
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 8),
                 Text(
