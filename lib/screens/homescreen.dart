@@ -38,9 +38,10 @@ class SoulHomeScreen extends StatelessWidget {
               ),
             ),
             child: BackdropFilter(
-              filter: ImageFilter.blur(sigmaX: 3.0, sigmaY: 3.0),
+              filter: ImageFilter.blur(sigmaX: 7.0, sigmaY: 7.0),
               child: Container(
-                decoration: BoxDecoration(color: Colors.white.withOpacity(0.0)),
+                decoration: BoxDecoration(
+                    color: const Color.fromARGB(255, 0, 0, 0).withOpacity(0.4)),
               ),
             ),
           ),
@@ -114,9 +115,8 @@ class SoulHomeScreen extends StatelessWidget {
                                       begin: Alignment.topRight,
                                       end: Alignment.bottomLeft,
                                       colors: [
-                                        Color(0xffC56EE0),
-                                        Color.fromARGB(255, 174, 83, 201),
-                                        Color(0xff580970)
+                                        Color(0xff5B2C6F),
+                                        Color(0xff9B59B6)
                                       ])),
                               height: screenHeight * 0.31,
                               width: screenWidth * 0.4,
@@ -127,7 +127,7 @@ class SoulHomeScreen extends StatelessWidget {
                                   Container(
                                     decoration: const BoxDecoration(
                                       shape: BoxShape.circle,
-                                      color: Color(0xffC26BDD),
+                                      color: Color.fromARGB(255, 255, 255, 255),
                                     ),
                                     padding: const EdgeInsets.all(7),
                                     child: const Icon(
@@ -176,8 +176,8 @@ class SoulHomeScreen extends StatelessWidget {
                                       begin: Alignment.topLeft,
                                       end: Alignment.bottomRight,
                                       colors: [
-                                        Color(0xffC4FFB2),
-                                        Color(0xff00C472)
+                                        Color(0xff2ECC71),
+                                        Color(0xffA3D9B1)
                                       ])),
                               height: screenHeight * 0.15,
                               width: screenWidth * 0.4,
@@ -188,19 +188,19 @@ class SoulHomeScreen extends StatelessWidget {
                                   Container(
                                     decoration: const BoxDecoration(
                                       shape: BoxShape.circle,
-                                      color: Color(0xff17CB79),
+                                      color: Color.fromARGB(255, 255, 255, 255),
                                     ),
                                     padding: const EdgeInsets.all(7),
                                     child: const Icon(
                                       CupertinoIcons.chat_bubble_fill,
                                       size: 35,
-                                      color: Color(0xff360844),
+                                      color: Color(0xff512E5F),
                                     ),
                                   ),
                                   const Text(
                                     'Chat',
                                     style: TextStyle(
-                                        fontSize: 20, color: Color(0xff360844)),
+                                        fontSize: 20, color: Color(0xff512E5F)),
                                   ),
                                 ],
                               )),
@@ -228,8 +228,8 @@ class SoulHomeScreen extends StatelessWidget {
                                       begin: Alignment.topRight,
                                       end: Alignment.bottomLeft,
                                       colors: [
-                                        Color(0xffF0CB93),
-                                        Color(0xffE65D5D)
+                                        Color(0xffF1948A),
+                                        Color(0xffF5B7B1)
                                       ])),
                               height: screenHeight * 0.15,
                               width: screenWidth * 0.4,
@@ -240,19 +240,19 @@ class SoulHomeScreen extends StatelessWidget {
                                   Container(
                                     decoration: const BoxDecoration(
                                       shape: BoxShape.circle,
-                                      color: Color(0xffECA681),
+                                      color: Color.fromARGB(255, 255, 255, 255),
                                     ),
                                     padding: const EdgeInsets.all(7),
                                     child: const Icon(
                                       CupertinoIcons.graph_square_fill,
                                       size: 35,
-                                      color: Color(0xff360844),
+                                      color: Color(0xff512E5F),
                                     ),
                                   ),
                                   const Text(
                                     'Stats',
                                     style: TextStyle(
-                                        fontSize: 20, color: Color(0xff360844)),
+                                        fontSize: 20, color: Color(0xff512E5F)),
                                   ),
                                 ],
                               )),
@@ -285,12 +285,18 @@ class SoulHomeScreen extends StatelessWidget {
                       padding:
                           EdgeInsets.symmetric(horizontal: screenWidth * 0.05),
                       children: [
-                        _buildRecentHistoryCard(
-                            'Recent History 1', const Color(0xffD65C60)),
-                        _buildRecentHistoryCard(
-                            'Recent History 2', const Color(0xffCDA38F)),
-                        _buildRecentHistoryCard(
-                            'Recent History 3', const Color(0xff8DCBCE)),
+                        _buildRecentHistoryCard("Continue chat",
+                            const Color(0xffE57373), "2024-09-17", () {
+                          // Handle delete action
+                        }),
+                        _buildRecentHistoryCard("Continue chat",
+                            const Color(0xffD7CCC8), "2024-09-17", () {
+                          // Handle delete action
+                        }),
+                        _buildRecentHistoryCard("Continue chat",
+                            const Color(0xff81D4FA), "2024-09-17", () {
+                          // Handle delete action
+                        }),
                       ],
                     ),
                   ),
@@ -303,15 +309,35 @@ class SoulHomeScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildRecentHistoryCard(String label, Color color) {
+  Widget _buildRecentHistoryCard(
+      String label, Color color, String date, VoidCallback onDelete) {
     return Card(
       margin: const EdgeInsets.symmetric(vertical: 8),
       color: color,
       child: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: Text(
-          label,
-          style: const TextStyle(color: Colors.white, fontSize: 16),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  label,
+                  style: const TextStyle(color: Colors.black87, fontSize: 16),
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  date,
+                  style: const TextStyle(color: Colors.black54, fontSize: 12),
+                ),
+              ],
+            ),
+            IconButton(
+              icon: const Icon(Icons.delete, color: Colors.black87),
+              onPressed: onDelete,
+            ),
+          ],
         ),
       ),
     );

@@ -36,35 +36,45 @@ class _SoulBotHomeState extends State<SoulBotHome> {
           TabItem(
             icon: Icon(
               CupertinoIcons.home,
-              color: currentPageIndex == 0 ? Colors.deepPurple : Colors.white,
+              color: currentPageIndex == 0
+                  ? const Color(0xff8E44AD)
+                  : Colors.white,
             ),
             title: "Home",
           ),
           TabItem(
             icon: Icon(
               CupertinoIcons.chat_bubble_fill,
-              color: currentPageIndex == 1 ? Colors.deepPurple : Colors.white,
+              color: currentPageIndex == 1
+                  ? const Color(0xff8E44AD)
+                  : Colors.white,
             ),
             title: "SoulBot",
           ),
           TabItem(
             icon: Icon(
               CupertinoIcons.add,
-              color: currentPageIndex == 2 ? Colors.deepPurple : Colors.white,
+              color: currentPageIndex == 2
+                  ? const Color(0xff8E44AD)
+                  : Colors.white,
             ),
             title: "Moods",
           ),
           TabItem(
             icon: Icon(
               CupertinoIcons.mic_fill,
-              color: currentPageIndex == 3 ? Colors.deepPurple : Colors.white,
+              color: currentPageIndex == 3
+                  ? const Color(0xff8E44AD)
+                  : Colors.white,
             ),
             title: "Voice",
           ),
           TabItem(
             icon: Icon(
               CupertinoIcons.graph_square_fill,
-              color: currentPageIndex == 4 ? Colors.deepPurple : Colors.white,
+              color: currentPageIndex == 4
+                  ? const Color(0xff8E44AD)
+                  : Colors.white,
             ),
             title: "Stats",
           ),
@@ -75,7 +85,7 @@ class _SoulBotHomeState extends State<SoulBotHome> {
           });
         },
         shadowColor: const Color.fromARGB(255, 14, 14, 14),
-        backgroundColor: Colors.deepPurple,
+        backgroundColor: const Color(0xff8E44AD),
       ),
       body: _screens[currentPageIndex],
     );
