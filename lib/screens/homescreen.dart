@@ -33,7 +33,7 @@ class SoulHomeScreen extends StatelessWidget {
           Container(
             decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/bg.png'),
+                image: AssetImage('assets/bg.jpg'),
                 fit: BoxFit.cover,
               ),
             ),
@@ -41,7 +41,7 @@ class SoulHomeScreen extends StatelessWidget {
               filter: ImageFilter.blur(sigmaX: 7.0, sigmaY: 7.0),
               child: Container(
                 decoration: BoxDecoration(
-                    color: const Color.fromARGB(255, 0, 0, 0).withOpacity(0.4)),
+                    color: const Color.fromARGB(255, 0, 0, 0).withOpacity(0.8)),
               ),
             ),
           ),
@@ -111,13 +111,7 @@ class SoulHomeScreen extends StatelessWidget {
                                       bottomLeft: Radius.circular(40),
                                       topLeft: Radius.circular(40),
                                       topRight: Radius.circular(16)),
-                                  gradient: LinearGradient(
-                                      begin: Alignment.topRight,
-                                      end: Alignment.bottomLeft,
-                                      colors: [
-                                        Color(0xff5B2C6F),
-                                        Color(0xff9B59B6)
-                                      ])),
+                                  color: Color(0xff7cf6ad)),
                               height: screenHeight * 0.31,
                               width: screenWidth * 0.4,
                               child: Center(
@@ -127,7 +121,7 @@ class SoulHomeScreen extends StatelessWidget {
                                   Container(
                                     decoration: const BoxDecoration(
                                       shape: BoxShape.circle,
-                                      color: Color.fromARGB(255, 255, 255, 255),
+                                      color: Color(0xff75e8a4),
                                     ),
                                     padding: const EdgeInsets.all(7),
                                     child: const Icon(
@@ -140,8 +134,7 @@ class SoulHomeScreen extends StatelessWidget {
                                     'Talk with SoulVoice',
                                     style: TextStyle(
                                         fontSize: 20,
-                                        color:
-                                            Color.fromARGB(255, 255, 255, 255),
+                                        color: Color.fromARGB(255, 0, 0, 0),
                                         fontWeight: FontWeight.bold),
                                     textAlign: TextAlign.center,
                                   ),
@@ -173,13 +166,7 @@ class SoulHomeScreen extends StatelessWidget {
                                       bottomLeft: Radius.circular(16),
                                       topLeft: Radius.circular(16),
                                       topRight: Radius.circular(40)),
-                                  gradient: LinearGradient(
-                                      begin: Alignment.topLeft,
-                                      end: Alignment.bottomRight,
-                                      colors: [
-                                        Color(0xff2ECC71),
-                                        Color(0xffA3D9B1)
-                                      ])),
+                                  color: Color(0xffbcf489)),
                               height: screenHeight * 0.15,
                               width: screenWidth * 0.4,
                               child: Center(
@@ -189,7 +176,7 @@ class SoulHomeScreen extends StatelessWidget {
                                   Container(
                                     decoration: const BoxDecoration(
                                       shape: BoxShape.circle,
-                                      color: Color.fromARGB(255, 255, 255, 255),
+                                      color: Color(0xffade07e),
                                     ),
                                     padding: const EdgeInsets.all(7),
                                     child: const Icon(
@@ -227,13 +214,7 @@ class SoulHomeScreen extends StatelessWidget {
                                       bottomLeft: Radius.circular(16),
                                       topLeft: Radius.circular(16),
                                       topRight: Radius.circular(16)),
-                                  gradient: LinearGradient(
-                                      begin: Alignment.topRight,
-                                      end: Alignment.bottomLeft,
-                                      colors: [
-                                        Color(0xffF1948A),
-                                        Color(0xffF5B7B1)
-                                      ])),
+                                  color: Color(0xffe0e5fd)),
                               height: screenHeight * 0.15,
                               width: screenWidth * 0.4,
                               child: Center(
@@ -243,7 +224,7 @@ class SoulHomeScreen extends StatelessWidget {
                                   Container(
                                     decoration: const BoxDecoration(
                                       shape: BoxShape.circle,
-                                      color: Color.fromARGB(255, 255, 255, 255),
+                                      color: Color.fromARGB(255, 230, 233, 251),
                                     ),
                                     padding: const EdgeInsets.all(7),
                                     child: const Icon(
@@ -289,16 +270,16 @@ class SoulHomeScreen extends StatelessWidget {
                       padding:
                           EdgeInsets.symmetric(horizontal: screenWidth * 0.05),
                       children: [
-                        _buildRecentHistoryCard("Continue chat",
-                            const Color(0xffE57373), "2024-09-17", () {
+                        _buildRecentHistoryCard("Continue chat", "2024-09-17",
+                            () {
                           // Handle delete action
                         }),
-                        _buildRecentHistoryCard("Continue chat",
-                            const Color(0xffD7CCC8), "2024-09-17", () {
+                        _buildRecentHistoryCard("Continue chat", "2024-09-17",
+                            () {
                           // Handle delete action
                         }),
-                        _buildRecentHistoryCard("Continue chat",
-                            const Color(0xff81D4FA), "2024-09-17", () {
+                        _buildRecentHistoryCard("Continue chat", "2024-09-17",
+                            () {
                           // Handle delete action
                         }),
                       ],
@@ -314,37 +295,54 @@ class SoulHomeScreen extends StatelessWidget {
   }
 
   Widget _buildRecentHistoryCard(
-      String label, Color color, String date, VoidCallback onDelete) {
+      String label, String date, VoidCallback onDelete) {
     return Card(
       margin: const EdgeInsets.symmetric(vertical: 8),
-      color: color,
-      child: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  label,
-                  style: const TextStyle(
-                      color: Colors.black87,
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold),
-                ),
-                const SizedBox(height: 8),
-                Text(
-                  date,
-                  style: const TextStyle(color: Colors.black54, fontSize: 12),
-                ),
-              ],
+      color: Colors.transparent, // Make the card itself transparent
+      child: ClipRRect(
+        borderRadius:
+            BorderRadius.circular(12), // Rounded corners for glass effect
+        child: BackdropFilter(
+          filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5), // Blur effect
+          child: Container(
+            decoration: BoxDecoration(
+              color: const Color.fromARGB(255, 255, 255, 255)
+                  .withOpacity(0.1), // Semi-transparent dark color
+              borderRadius: BorderRadius.circular(12),
+              border: Border.all(
+                  color: Colors.white.withOpacity(0.2)), // Optional border
             ),
-            IconButton(
-              icon: const Icon(Icons.delete, color: Colors.black87),
-              onPressed: onDelete,
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        label,
+                        style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold),
+                      ),
+                      const SizedBox(height: 8),
+                      Text(
+                        date,
+                        style: const TextStyle(
+                            color: Colors.white70, fontSize: 12),
+                      ),
+                    ],
+                  ),
+                  IconButton(
+                    icon: const Icon(Icons.delete, color: Colors.white),
+                    onPressed: onDelete,
+                  ),
+                ],
+              ),
             ),
-          ],
+          ),
         ),
       ),
     );

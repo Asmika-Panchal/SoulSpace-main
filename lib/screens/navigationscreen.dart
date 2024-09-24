@@ -37,7 +37,7 @@ class _SoulBotHomeState extends State<SoulBotHome> {
             icon: Icon(
               CupertinoIcons.home,
               color: currentPageIndex == 0
-                  ? const Color(0xff8E44AD)
+                  ? const Color(0xff032429)
                   : Colors.white,
             ),
             title: "Home",
@@ -46,7 +46,7 @@ class _SoulBotHomeState extends State<SoulBotHome> {
             icon: Icon(
               CupertinoIcons.chat_bubble_fill,
               color: currentPageIndex == 1
-                  ? const Color(0xff8E44AD)
+                  ? const Color(0xff032429)
                   : Colors.white,
             ),
             title: "SoulBot",
@@ -55,7 +55,7 @@ class _SoulBotHomeState extends State<SoulBotHome> {
             icon: Icon(
               CupertinoIcons.add,
               color: currentPageIndex == 2
-                  ? const Color(0xff8E44AD)
+                  ? const Color(0xff032429)
                   : Colors.white,
             ),
             title: "Moods",
@@ -64,7 +64,7 @@ class _SoulBotHomeState extends State<SoulBotHome> {
             icon: Icon(
               CupertinoIcons.mic_fill,
               color: currentPageIndex == 3
-                  ? const Color(0xff8E44AD)
+                  ? const Color(0xff032429)
                   : Colors.white,
             ),
             title: "Voice",
@@ -73,7 +73,7 @@ class _SoulBotHomeState extends State<SoulBotHome> {
             icon: Icon(
               CupertinoIcons.graph_square_fill,
               color: currentPageIndex == 4
-                  ? const Color(0xff8E44AD)
+                  ? const Color(0xff032429)
                   : Colors.white,
             ),
             title: "Stats",
@@ -85,7 +85,7 @@ class _SoulBotHomeState extends State<SoulBotHome> {
           });
         },
         shadowColor: const Color.fromARGB(255, 14, 14, 14),
-        backgroundColor: const Color(0xff8E44AD),
+        backgroundColor: const Color(0xff032429),
       ),
       body: _screens[currentPageIndex],
     );
