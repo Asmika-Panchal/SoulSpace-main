@@ -33,7 +33,7 @@ class ChatScreen extends StatelessWidget {
         Container(
           decoration: const BoxDecoration(
             image: DecorationImage(
-              image: AssetImage('assets/bg2.jpeg'),
+              image: AssetImage('assets/soulbg.jpg'),
               fit: BoxFit.cover,
             ),
           ),
@@ -83,14 +83,34 @@ class ChatScreen extends StatelessWidget {
               child: Row(
                 children: [
                   Expanded(
-                    child: TextField(
-                      decoration: InputDecoration(
-                        hintText: 'Enter Your Text Here',
-                        filled: true,
-                        fillColor: Colors.black,
-                        border: UnderlineInputBorder(
-                          borderRadius: BorderRadius.circular(30),
-                          borderSide: BorderSide.none,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(30),
+                      child: BackdropFilter(
+                        filter: ImageFilter.blur(
+                            sigmaX: 10, sigmaY: 10), // Glass blur effect
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Colors.black.withOpacity(
+                                0.6), // Semi-transparent dark color
+                            borderRadius: BorderRadius.circular(30),
+                            border: Border.all(
+                                color: const Color.fromARGB(255, 255, 255, 255)
+                                    .withOpacity(0.2)),
+                          ),
+                          child: TextField(
+                            decoration: InputDecoration(
+                              hintText: 'Enter Your Text Here',
+                              hintStyle: TextStyle(color: Colors.white70),
+                              filled: true,
+                              fillColor: Colors
+                                  .transparent, // Make the fill color transparent
+                              border: UnderlineInputBorder(
+                                borderRadius: BorderRadius.circular(30),
+                                borderSide: BorderSide.none,
+                              ),
+                            ),
+                            style: TextStyle(color: Colors.white), // Text color
+                          ),
                         ),
                       ),
                     ),
@@ -135,22 +155,34 @@ class ChatScreen extends StatelessWidget {
   Widget buildUserMessage(String message) {
     return Align(
       alignment: Alignment.centerRight,
-      child: Container(
-        padding: const EdgeInsets.all(16),
-        decoration: const BoxDecoration(
-          // gradient:
-          //     LinearGradient(colors: [Color(0xff860EAA), Color(0xff360644)]),
-          color: Color(0xFFCC4499),
-          borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(20),
-              topRight: Radius.circular(0),
-              bottomLeft: Radius.circular(20),
-              bottomRight: Radius.circular(20)),
-        ),
-        child: Text(
-          message,
-          style:
-              const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+      child: ClipRRect(
+        borderRadius: const BorderRadius.only(
+            topLeft: Radius.circular(20),
+            topRight: Radius.circular(0),
+            bottomLeft: Radius.circular(20),
+            bottomRight: Radius.circular(20)),
+        child: BackdropFilter(
+          filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10), // Glass blur effect
+          child: Container(
+            padding: const EdgeInsets.all(16),
+            decoration: BoxDecoration(
+              color: const Color.fromARGB(255, 108, 88, 149)
+                  .withOpacity(0.2), // Semi-transparent dark color
+              borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(20),
+                  topRight: Radius.circular(0),
+                  bottomLeft: Radius.circular(20),
+                  bottomRight: Radius.circular(20)),
+              border: Border.all(
+                  color: const Color.fromARGB(255, 191, 195, 255)
+                      .withOpacity(0.2)), // Optional border
+            ),
+            child: Text(
+              message,
+              style: const TextStyle(
+                  color: Colors.white, fontWeight: FontWeight.bold),
+            ),
+          ),
         ),
       ),
     );
@@ -159,29 +191,33 @@ class ChatScreen extends StatelessWidget {
   Widget buildBotMessage(String message) {
     return Align(
       alignment: Alignment.centerLeft,
-      child: Container(
-        padding: const EdgeInsets.all(16),
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topRight,
-            end: Alignment.bottomLeft,
-            colors: [
-              Color(0xFF663DFF), // #663dff
-              Color(0xFFAA00FF), // #aa00ff
-              Color(0xFFCC4499), // #cc4499
-            ],
-            stops: [0.0, 0.37, 1.0],
+      child: ClipRRect(
+        borderRadius: const BorderRadius.only(
+            topLeft: Radius.circular(0),
+            topRight: Radius.circular(20),
+            bottomLeft: Radius.circular(20),
+            bottomRight: Radius.circular(20)),
+        child: BackdropFilter(
+          filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10), // Glass blur effect
+          child: Container(
+            padding: const EdgeInsets.all(16),
+            decoration: BoxDecoration(
+              color: const Color.fromARGB(255, 0, 0, 0)
+                  .withOpacity(0.2), // Semi-transparent dark color
+              borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(0),
+                  topRight: Radius.circular(20),
+                  bottomLeft: Radius.circular(20),
+                  bottomRight: Radius.circular(20)),
+              border: Border.all(
+                  color: Colors.white.withOpacity(0.2)), // Optional border
+            ),
+            child: Text(
+              message,
+              style: const TextStyle(
+                  color: Colors.white, fontWeight: FontWeight.bold),
+            ),
           ),
-          borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(0),
-              topRight: Radius.circular(20),
-              bottomLeft: Radius.circular(20),
-              bottomRight: Radius.circular(20)),
-        ),
-        child: Text(
-          message,
-          style:
-              const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
       ),
     );
