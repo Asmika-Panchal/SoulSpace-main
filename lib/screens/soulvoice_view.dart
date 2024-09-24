@@ -1,15 +1,12 @@
 import 'dart:ui';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-// ignore: depend_on_referenced_packages
 import 'package:gif/gif.dart';
 
 class SoulVoiceScreen extends StatefulWidget {
   const SoulVoiceScreen({super.key});
 
   @override
-  // ignore: library_private_types_in_public_api
   _SoulVoiceScreenState createState() => _SoulVoiceScreenState();
 }
 
@@ -25,14 +22,17 @@ class _SoulVoiceScreenState extends State<SoulVoiceScreen>
 
   @override
   Widget build(BuildContext context) {
+    var screenHeight = MediaQuery.of(context).size.height;
+    var screenWidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
       body: Stack(
         children: [
-          // Black tray with blur effect
+          // Background image with blur effect
           Container(
             decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/bg3.jpeg'), // Background image
+                image: AssetImage('assets/voicepage.jpeg'), // Background image
                 fit: BoxFit.cover,
               ),
             ),
@@ -43,48 +43,68 @@ class _SoulVoiceScreenState extends State<SoulVoiceScreen>
               ),
             ),
           ),
-          // Main content
+          // Main content with glassmorphism card
           Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 const SizedBox(height: 80),
-                const Text(
-                  'Hi, I am Soul Voice!',
-                  style: TextStyle(
-                    fontSize: 30,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
+                
+                // Glassmorphism card (without blur)
+                Card(
+                  color: const Color.fromARGB(255, 68, 225, 186), // Keep the green shade with same opacity
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(16),
                   ),
-                  textAlign: TextAlign.center,
-                ),
-                const SizedBox(height: 10),
-                const Text(
-                  'Tell me, How can I help you?',
-                  style: TextStyle(
-                    fontSize: 20,
-                    color: Colors.white,
+                  elevation: 0,
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 20, horizontal: 40),
+                    child: Column(
+                      children: const [
+                        Text(
+                          'Hi, I am Soul Voice!',
+                          style: TextStyle(
+                            fontSize: 30,
+                            color: Color.fromARGB(255, 11, 11, 11),
+                            fontWeight: FontWeight.bold,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                        SizedBox(height: 10),
+                        Text(
+                          'Tell me, how can I help you?',
+                          style: TextStyle(
+                            fontSize: 20,
+                             fontWeight: FontWeight.w400,
+                            color: Color.fromARGB(255, 6, 5, 5),
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
+                    ),
                   ),
-                  textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 30),
-                // Microphone icon with animated GIF
+                
+                // Microphone icon with animated GIF (make it bigger)
                 Gif(
                   autostart: Autostart.loop,
-                  placeholder: (context) =>
-                      const Center(child: Icon(CupertinoIcons.mic_circle_fill)),
+                  controller: controller,
+                  placeholder: (context) => const Icon(CupertinoIcons.mic_circle_fill, size: 150), // Increase the size
                   image: const AssetImage('assets/mic.gif'),
+                  height: 150, // Adjust the size as needed
                 ),
                 const SizedBox(height: 30),
-                // Display sound.jpeg as an image
+                
+                // Sound image
                 SizedBox(
-                  width: MediaQuery.of(context).size.width *
-                      0.8, // Dynamically adjust the width
+                  width: screenWidth * 0.8,
                   height: 100,
                   child: Image.asset(
-                    'assets/sound.png', // Add the image for the sound
-                    fit: BoxFit.contain, // Adjust the image fit as needed
+                    'assets/sound.png', // Add the sound image
+                    fit: BoxFit.contain,
                   ),
                 ),
               ],
