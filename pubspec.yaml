@@ -80,6 +80,7 @@ flutter:
    - assets/sound.png
    - assets/profile.png
    - assets/mic.gif
+   - assets/bot.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
