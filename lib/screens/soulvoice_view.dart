@@ -1,4 +1,5 @@
 import 'dart:ui';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gif/gif.dart';
@@ -32,7 +33,7 @@ class _SoulVoiceScreenState extends State<SoulVoiceScreen>
           Container(
             decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/voicepage.jpeg'), // Background image
+                image: AssetImage('assets/bgtorq.jpg'), // Background image
                 fit: BoxFit.cover,
               ),
             ),
@@ -50,10 +51,11 @@ class _SoulVoiceScreenState extends State<SoulVoiceScreen>
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 const SizedBox(height: 80),
-                
+
                 // Glassmorphism card (without blur)
                 Card(
-                  color: const Color.fromARGB(255, 68, 225, 186), // Keep the green shade with same opacity
+                  color: const Color.fromARGB(255, 68, 225,
+                      186), // Keep the green shade with same opacity
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(16),
                   ),
@@ -77,7 +79,7 @@ class _SoulVoiceScreenState extends State<SoulVoiceScreen>
                           'Tell me, how can I help you?',
                           style: TextStyle(
                             fontSize: 20,
-                             fontWeight: FontWeight.w400,
+                            fontWeight: FontWeight.w400,
                             color: Color.fromARGB(255, 6, 5, 5),
                           ),
                           textAlign: TextAlign.center,
@@ -87,17 +89,19 @@ class _SoulVoiceScreenState extends State<SoulVoiceScreen>
                   ),
                 ),
                 const SizedBox(height: 30),
-                
+
                 // Microphone icon with animated GIF (make it bigger)
                 Gif(
                   autostart: Autostart.loop,
                   controller: controller,
-                  placeholder: (context) => const Icon(CupertinoIcons.mic_circle_fill, size: 150), // Increase the size
+                  placeholder: (context) => const Icon(
+                      CupertinoIcons.mic_circle_fill,
+                      size: 150), // Increase the size
                   image: const AssetImage('assets/mic.gif'),
                   height: 150, // Adjust the size as needed
                 ),
                 const SizedBox(height: 30),
-                
+
                 // Sound image
                 SizedBox(
                   width: screenWidth * 0.8,
