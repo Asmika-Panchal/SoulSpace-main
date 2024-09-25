@@ -70,6 +70,10 @@ flutter:
    - assets/login.webp
    - assets/bg.png
    - assets/bg.jpg
+   - assets/bggrey.jpg
+   - assets/bgblue.jpg
+   - assets/bgblack.jpg
+   - assets/bgtorq.jpg
    - assets/soulbg.jpg
    - assets/bg2.jpeg
    - assets/bg3.jpeg

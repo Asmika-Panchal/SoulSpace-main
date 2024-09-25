@@ -33,7 +33,7 @@ class SoulHomeScreen extends StatelessWidget {
           Container(
             decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/bg.jpg'),
+                image: AssetImage('assets/bgblue.jpg'),
                 fit: BoxFit.cover,
               ),
             ),
@@ -41,7 +41,7 @@ class SoulHomeScreen extends StatelessWidget {
               filter: ImageFilter.blur(sigmaX: 7.0, sigmaY: 7.0),
               child: Container(
                 decoration: BoxDecoration(
-                    color: const Color.fromARGB(255, 0, 0, 0).withOpacity(0.8)),
+                    color: const Color.fromARGB(255, 0, 0, 0).withOpacity(0.7)),
               ),
             ),
           ),

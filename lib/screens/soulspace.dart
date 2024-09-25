@@ -38,7 +38,7 @@ class ChatScreen extends StatelessWidget {
             ),
           ),
           child: BackdropFilter(
-            filter: ImageFilter.blur(sigmaX: 3.0, sigmaY: 3.0),
+            filter: ImageFilter.blur(sigmaX: 7.0, sigmaY: 7.0),
             child: Container(
               decoration: BoxDecoration(color: Colors.black.withOpacity(0.5)),
             ),
