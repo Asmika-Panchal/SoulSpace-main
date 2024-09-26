@@ -20,7 +20,7 @@ class _SoulBotHomeState extends State<SoulBotHome> {
     const SoulHomeScreen(),
     const ChatScreen(),
     const Mood1Screen(),
-    const SoulVoiceScreen(),
+    const SoulVoiceView(),
     const Statsscreen(),
   ];
   @override

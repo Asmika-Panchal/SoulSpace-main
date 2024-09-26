@@ -10,6 +10,7 @@ import 'package:soul/screens/navigationscreen.dart';
 import 'package:soul/screens/question.dart';
 import 'package:soul/screens/reminder.dart';
 import 'package:soul/screens/signup.dart';
+import 'package:soul/screens/soulvoice_view.dart';
 
 //Start Point, to run app
 void main() {
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
           brightness: Brightness.dark,
           primaryColor: CupertinoColors.activeBlue,
           fontFamily: 'Alice'),
-      home: const SoulBotHome(),
+      home: SoulBotHome(),
       // home: const Mood1Screen(),
       // home: const Mood2Screen(),
       // home: const Mood3Screen(),

@@ -146,7 +146,7 @@ class SoulHomeScreen extends StatelessWidget {
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) =>
-                                        const SoulVoiceScreen()),
+                                        const SoulVoiceView()),
                               );
                             },
                           ),

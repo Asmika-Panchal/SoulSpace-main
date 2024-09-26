@@ -1,106 +1,99 @@
-import 'package:flutter/material.dart';
-import 'package:gif/gif.dart';
+import 'dart:math';
+import 'dart:ui';
 
-class SoulVoiceScreen extends StatefulWidget {
-  const SoulVoiceScreen({super.key});
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+
+class SoulVoiceView extends StatefulWidget {
+  const SoulVoiceView({super.key});
 
   @override
-  _SoulVoiceScreenState createState() => _SoulVoiceScreenState();
+  SoulVoiceViewState createState() => SoulVoiceViewState();
 }
 
-class _SoulVoiceScreenState extends State<SoulVoiceScreen>
-    with TickerProviderStateMixin {
-  late final GifController controller;
+class SoulVoiceViewState extends State<SoulVoiceView>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
 
   @override
   void initState() {
-    controller = GifController(vsync: this);
     super.initState();
+    _controller = AnimationController(
+      duration: const Duration(seconds: 3),
+      vsync: this,
+    )..repeat();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    var screenHeight = MediaQuery.of(context).size.height;
-    var screenWidth = MediaQuery.of(context).size.width;
-
     return Scaffold(
       body: Stack(
         children: [
-          // Background image with blur effect
+          // Background Robot Image
           Container(
-            decoration: const BoxDecoration(
+            decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/bot.png'), // Background image
+                image: AssetImage(
+                    'assets/bgblack.jpg'), // Replace with your robot image
                 fit: BoxFit.cover,
               ),
             ),
           ),
-          // Main content with glassmorphism card
+          // Content Layout
           Center(
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                const SizedBox(height: 80),
-                // Glassmorphism card (without blur)
-                Card(
-                  color: const Color.fromARGB(255, 68, 225, 186).withOpacity(
-                      0.9), // Keep the green shade with same opacity
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(16),
+                // Title and Subtitle
+                Text(
+                  "Hi, I am Soul Voice",
+                  style: TextStyle(
+                    fontSize: 28,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white.withOpacity(0.9),
                   ),
-                  elevation: 0,
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 20, horizontal: 40),
-                    child: Column(
-                      children: const [
-                        Text(
-                          'Hi, I am Soul Voice!',
-                          style: TextStyle(
-                            fontSize: 30,
-                            color: Color.fromARGB(255, 11, 11, 11),
-                            fontWeight: FontWeight.bold,
-                          ),
-                          textAlign: TextAlign.center,
-                        ),
-                        SizedBox(height: 10),
-                        Text(
-                          'Tell me, how can I help you?',
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w400,
-                            color: Color.fromARGB(255, 6, 5, 5),
-                          ),
-                          textAlign: TextAlign.center,
-                        ),
-                      ],
+                ),
+                SizedBox(height: 8), // Small space between title and subtitle
+                Text(
+                  "Tell me how can I help you",
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w300,
+                    color: Colors.white.withOpacity(0.7),
+                  ),
+                ),
+                SizedBox(height: 30), // Space between subtitle and wave
+
+                // Glassmorphism Container with Wave Animation
+                GlassmorphismContainer(
+                  child: SizedBox(
+                    height: 200,
+                    width: double.infinity,
+                    child: AnimatedBuilder(
+                      animation: _controller,
+                      builder: (context, child) {
+                        return CustomPaint(
+                          painter: WavePainter(_controller.value),
+                        );
+                      },
                     ),
                   ),
                 ),
-                const SizedBox(height: 30),
+                SizedBox(height: 50), // Space between waves and microphone
 
-                // Microphone icon with animated GIF (make it bigger)
-                // Gif(
-                //   autostart: Autostart.loop,
-                //   controller: controller,
-                //   placeholder: (context) => const Icon(
-                //       CupertinoIcons.mic_circle_fill,
-                //       size: 150), // Increase the size
-                //   image: const AssetImage('assets/mic.gif'),
-                //   height: 150, // Adjust the size as needed
-                // ),
-                const SizedBox(height: 30),
-
-                // Sound image
-                // SizedBox(
-                //   width: screenWidth * 0.8,
-                //   height: 100,
-                //   child: Image.asset(
-                //     'assets/sound.png', // Add the sound image
-                //     fit: BoxFit.contain,
-                //   ),
-                // ),
+                // Large Microphone Icon at the bottom
+                Icon(
+                  CupertinoIcons.mic_circle_fill,
+                  size: 250,
+                  color: Colors.white.withOpacity(0.8),
+                ),
               ],
             ),
           ),
@@ -108,10 +101,100 @@ class _SoulVoiceScreenState extends State<SoulVoiceScreen>
       ),
     );
   }
+}
+
+class GlassmorphismContainer extends StatelessWidget {
+  final Widget child;
+
+  const GlassmorphismContainer({required this.child});
 
   @override
-  void dispose() {
-    controller.dispose(); // Dispose the controller to avoid memory leaks
-    super.dispose();
+  Widget build(BuildContext context) {
+    return Container(
+      height: 200,
+      decoration: BoxDecoration(
+        color: Colors.white.withOpacity(0.1), // Semi-transparent background
+      ),
+      child: ClipRRect(
+        child: BackdropFilter(
+          filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5), // Glass blur effect
+          child: Padding(
+            padding: const EdgeInsets.all(0),
+            child: child,
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class WavePainter extends CustomPainter {
+  final double animationValue;
+
+  WavePainter(this.animationValue);
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final Paint wavePaint1 = Paint()
+      ..color = Colors.blue.withOpacity(0.7)
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 3;
+
+    final Paint wavePaint2 = Paint()
+      ..color = Colors.pink.withOpacity(0.7)
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 3;
+
+    final Paint wavePaint3 = Paint()
+      ..color = Colors.purple.withOpacity(0.7)
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 3;
+
+    final path1 = Path();
+    final path2 = Path();
+    final path3 = Path();
+
+    // First wave
+    for (double i = 0; i <= size.width; i++) {
+      double waveHeight =
+          sin((i / size.width * 2 * pi * 0.5) + animationValue * 2 * pi) * 30;
+      if (i == 0) {
+        path1.moveTo(i, size.height / 2 + waveHeight);
+      } else {
+        path1.lineTo(i, size.height / 2 + waveHeight);
+      }
+    }
+
+    // Second wave
+    for (double i = 0; i <= size.width; i++) {
+      double waveHeight =
+          sin((i / size.width * 2 * pi * 0.4) + animationValue * 2 * pi) * 25;
+      if (i == 0) {
+        path2.moveTo(i, size.height / 2 - 50 + waveHeight);
+      } else {
+        path2.lineTo(i, size.height / 2 - 50 + waveHeight);
+      }
+    }
+
+    // Third wave
+    for (double i = 0; i <= size.width; i++) {
+      double waveHeight =
+          sin((i / size.width * 2 * pi * 0.3) + animationValue * 2 * pi) * 20;
+      if (i == 0) {
+        path3.moveTo(i, size.height / 2 + 50 + waveHeight);
+      } else {
+        path3.lineTo(i, size.height / 2 + 50 + waveHeight);
+      }
+    }
+
+    // Draw the wave paths
+    canvas.drawPath(path1, wavePaint1);
+    canvas.drawPath(path2, wavePaint2);
+    canvas.drawPath(path3, wavePaint3);
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) {
+    return true;
   }
 }
