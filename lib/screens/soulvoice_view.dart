@@ -1,7 +1,6 @@
 import 'dart:math';
 import 'dart:ui';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class SoulVoiceView extends StatefulWidget {
@@ -45,54 +44,63 @@ class SoulVoiceViewState extends State<SoulVoiceView>
               ),
             ),
           ),
-          // Content Layout
+          // Glassmorphism effect with microphone icon, waves, and title
           Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                // Title and Subtitle
-                Text(
-                  "Hi, I am Soul Voice",
-                  style: TextStyle(
-                    fontSize: 28,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white.withOpacity(0.9),
-                  ),
-                ),
-                SizedBox(height: 8), // Small space between title and subtitle
-                Text(
-                  "Tell me how can I help you",
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w300,
-                    color: Colors.white.withOpacity(0.7),
-                  ),
-                ),
-                SizedBox(height: 30), // Space between subtitle and wave
-
-                // Glassmorphism Container with Wave Animation
-                GlassmorphismContainer(
-                  child: SizedBox(
-                    height: 200,
-                    width: double.infinity,
-                    child: AnimatedBuilder(
-                      animation: _controller,
-                      builder: (context, child) {
-                        return CustomPaint(
-                          painter: WavePainter(_controller.value),
-                        );
-                      },
+                // Title Section
+                Column(
+                  children: [
+                    Text(
+                      "Hi, I am Soul Voice",
+                      style: TextStyle(
+                        fontSize: 28,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white.withOpacity(0.9),
+                      ),
                     ),
-                  ),
+                    SizedBox(
+                        height: 8), // Small space between title and subtitle
+                    Text(
+                      "Tell me how can I help you",
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w300,
+                        color: Colors.white.withOpacity(0.7),
+                      ),
+                    ),
+                  ],
                 ),
-                SizedBox(height: 50), // Space between waves and microphone
-
-                // Large Microphone Icon at the bottom
-                Icon(
-                  CupertinoIcons.mic_circle_fill,
-                  size: 250,
-                  color: Colors.white.withOpacity(0.8),
+                SizedBox(
+                    height: 30), // Space between title and glassmorphism box
+                // Glassmorphism Container with Microphone and Wave Animation
+                GlassmorphismContainer(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      // Microphone Icon
+                      Icon(
+                        Icons.mic,
+                        size: 100,
+                        color: Colors.white.withOpacity(0.8),
+                      ),
+                      SizedBox(height: 30), // Space between icon and waves
+                      // Wave Animation
+                      SizedBox(
+                        height: 200,
+                        width: double.infinity,
+                        child: AnimatedBuilder(
+                          animation: _controller,
+                          builder: (context, child) {
+                            return CustomPaint(
+                              painter: WavePainter(_controller.value),
+                            );
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),
@@ -111,15 +119,22 @@ class GlassmorphismContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 200,
+      width: 350,
+      height: 400,
       decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.1), // Semi-transparent background
+        color: Colors.white.withOpacity(0.2), // Semi-transparent background
+        borderRadius: BorderRadius.circular(30),
+        border: Border.all(
+          width: 2,
+          color: Colors.white.withOpacity(0.2),
+        ),
       ),
       child: ClipRRect(
+        borderRadius: BorderRadius.circular(30),
         child: BackdropFilter(
-          filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5), // Glass blur effect
+          filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10), // Glass blur effect
           child: Padding(
-            padding: const EdgeInsets.all(0),
+            padding: const EdgeInsets.only(top: 16.0, bottom: 16.0),
             child: child,
           ),
         ),
