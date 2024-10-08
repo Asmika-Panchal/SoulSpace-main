@@ -60,7 +60,7 @@ class _Mood2ScreenState extends State<Mood2Screen> {
               child: Container(
                 decoration: BoxDecoration(
                   color: Colors.black
-                      .withOpacity(0.6), // Darker overlay for more contrast
+                      .withOpacity(0.3), // Darker overlay for more contrast
                 ),
               ),
             ),

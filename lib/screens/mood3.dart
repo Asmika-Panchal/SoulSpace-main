@@ -54,12 +54,12 @@ class _Mood3ScreenState extends State<Mood3Screen> {
             decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage(
-                    'assets/mood_3.webp'), // Update with your image path
+                    'assets/mood_3.jpg'), // Update with your image path
                 fit: BoxFit.cover,
               ),
             ),
             child: BackdropFilter(
-              filter: ImageFilter.blur(sigmaX: 4.0, sigmaY: 4.0), // Blur effect
+              filter: ImageFilter.blur(sigmaX: 3.0, sigmaY: 3.0), // Blur effect
               child: Container(
                 decoration: BoxDecoration(
                   color: Colors.black.withOpacity(0.6), // Darker overlay
@@ -77,7 +77,7 @@ class _Mood3ScreenState extends State<Mood3Screen> {
                   margin: const EdgeInsets.symmetric(horizontal: 20),
                   decoration: BoxDecoration(
                     color: Colors.black
-                        .withOpacity(0.5), // Black color with 50% opacity
+                        .withOpacity(0.3), // Black color with 50% opacity
                     borderRadius: BorderRadius.circular(10), // Rounded corners
                   ),
                   padding: const EdgeInsets.symmetric(

@@ -72,7 +72,7 @@ class Mood1ScreenState extends State<Mood1Screen> {
               child: Container(
                 decoration: BoxDecoration(
                   color: Colors.black.withOpacity(0.6), // Darker overlay
-                  backgroundBlendMode: BlendMode.darken, // Darken blend mode
+                backgroundBlendMode: BlendMode.darken, // Darken blend mode
                 ),
               ),
             ),
@@ -83,7 +83,7 @@ class Mood1ScreenState extends State<Mood1Screen> {
             child: Container(
               decoration: BoxDecoration(
                 color: Colors.black
-                    .withOpacity(0.4), // Black color with 40% opacity
+                    .withOpacity(0.3), // Black color with 40% opacity
                 borderRadius: BorderRadius.circular(20), // Rounded corners
                 border: Border.all(
                     color: Colors.white.withOpacity(0.2),
