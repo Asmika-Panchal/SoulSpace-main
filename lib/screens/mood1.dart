@@ -67,6 +67,7 @@ class Mood1ScreenState extends State<Mood1Screen> {
             ),
             child: BackdropFilter(
               filter: ImageFilter.blur(
+                
                   sigmaX: 5.0, sigmaY: 5.0), // Increase blur intensity
               child: Container(
                 decoration: BoxDecoration(
