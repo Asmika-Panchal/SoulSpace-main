@@ -60,6 +60,7 @@ class MyApp extends StatelessWidget {
           brightness: Brightness.dark,
           primaryColor: CupertinoColors.activeBlue,
           fontFamily: 'MontserratAlternates'),
+      routerConfig: _router,
     );
   }
 }
