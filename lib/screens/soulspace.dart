@@ -4,6 +4,7 @@ import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class ChatScreen extends StatelessWidget {
   const ChatScreen({super.key});
@@ -17,8 +18,9 @@ class ChatScreen extends StatelessWidget {
         leading: IconButton(
           icon: const Icon(CupertinoIcons.back,
               color: Color.fromARGB(255, 255, 255, 255)),
-          onPressed: () => 1 + 1,
-          // Navigator.of(context).pop(),
+          onPressed: () {
+            context.pop(); // GoRouter's pop function to go back
+          },
         ),
         title: const Row(
           children: [
@@ -27,7 +29,7 @@ class ChatScreen extends StatelessWidget {
             Text('Soulspace', style: TextStyle(color: Colors.white)),
           ],
         ),
-        backgroundColor: Colors.black.withOpacity(0.3),
+        backgroundColor: Colors.black.withOpacity(1),
       ),
       body: Stack(children: [
         Container(

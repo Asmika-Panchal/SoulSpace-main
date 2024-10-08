@@ -2,10 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:soul/screens/profile_view.dart'; // Import your ProfileScreen
-import 'package:soul/screens/soulspace.dart';
-import 'package:soul/screens/soulvoice_view.dart';
-import 'package:soul/screens/statsscreen.dart';
+import 'package:go_router/go_router.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -78,12 +75,7 @@ class SoulHomeScreen extends StatelessWidget {
                         ),
                         InkWell(
                           onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      const ProfileScreen()), // Navigate to ProfileScreen
-                            );
+                            context.go('/profile');
                           },
                           child: Hero(
                             tag: "my-hero-animation-tag",
@@ -142,12 +134,7 @@ class SoulHomeScreen extends StatelessWidget {
                               )),
                             ),
                             onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        const SoulVoiceView()),
-                              );
+                              context.push('/voice');
                             },
                           ),
                         ],
@@ -196,11 +183,7 @@ class SoulHomeScreen extends StatelessWidget {
                               )),
                             ),
                             onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const ChatScreen()),
-                              );
+                              context.push('/chat');
                             },
                           ),
                           SizedBox(
@@ -244,11 +227,7 @@ class SoulHomeScreen extends StatelessWidget {
                               )),
                             ),
                             onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const Statsscreen()),
-                              );
+                              context.push('/stats');
                             },
                           ),
                         ],
