@@ -75,7 +75,7 @@ class SoulHomeScreen extends StatelessWidget {
                         ),
                         InkWell(
                           onTap: () {
-                            context.go('/profile');
+                            context.push('/profile');
                           },
                           child: Hero(
                             tag: "my-hero-animation-tag",
@@ -238,7 +238,8 @@ class SoulHomeScreen extends StatelessWidget {
                   Text(
                     'Recent History',
                     style: TextStyle(
-                        fontSize: screenHeight * 0.025, fontFamily: 'MontserratAlternates'),
+                        fontSize: screenHeight * 0.025,
+                        fontFamily: 'MontserratAlternates'),
                   ),
                   SizedBox(height: screenHeight * 0.02),
                   Padding(

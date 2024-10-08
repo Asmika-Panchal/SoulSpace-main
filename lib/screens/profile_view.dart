@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:soul/screens/mood1.dart';
+import 'package:go_router/go_router.dart';
 import 'package:soul/screens/profile_edit.dart';
 import 'package:soul/screens/question.dart';
 import 'package:soul/screens/reminder.dart';
@@ -25,7 +25,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         leading: IconButton(
           icon: const Icon(CupertinoIcons.back),
           onPressed: () {
-            // Navigator.pop(context);
+            context.pop();
           },
         ),
       ),
@@ -136,12 +136,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 children: [
                   InkWell(
                     onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const Mood1Screen(),
-                        ),
-                      );
+                      context.go('/mood1');
                     },
                     child: buildSettingItem(
                       icon: Icons.person_outline,
