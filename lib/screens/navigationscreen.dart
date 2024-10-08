@@ -1,14 +1,11 @@
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:soul/screens/homescreen.dart';
-import 'package:soul/screens/mood1.dart';
-import 'package:soul/screens/soulspace.dart';
-import 'package:soul/screens/soulvoice_view.dart';
-import 'package:soul/screens/statsscreen.dart';
+import 'package:go_router/go_router.dart';
 
 class SoulBotHome extends StatefulWidget {
-  const SoulBotHome({super.key});
+  final Widget child; // Child widget to show the routed screen
+  const SoulBotHome({super.key, required this.child});
 
   @override
   State<SoulBotHome> createState() => _SoulBotHomeState();
@@ -16,22 +13,12 @@ class SoulBotHome extends StatefulWidget {
 
 class _SoulBotHomeState extends State<SoulBotHome> {
   int currentPageIndex = 0;
-  final List<Widget> _screens = [
-    const SoulHomeScreen(),
-    const ChatScreen(),
-    const Mood1Screen(),
-    const SoulVoiceView(),
-    const Statsscreen(),
-  ];
+
   @override
   Widget build(BuildContext context) {
-    // var screenHeight = MediaQuery.of(context).size.height;
-    // var screenWidth = MediaQuery.of(context).size.width;
-
     return Scaffold(
-      // body:
+      body: widget.child, // Display the current page
       bottomNavigationBar: ConvexAppBar(
-        // const <int, dynamic>{1: '3+'}, //new msgs (index, number)
         items: [
           TabItem(
             icon: Icon(
@@ -83,11 +70,27 @@ class _SoulBotHomeState extends State<SoulBotHome> {
           setState(() {
             currentPageIndex = index;
           });
+          switch (index) {
+            case 0:
+              context.go('/home');
+              break;
+            case 1:
+              context.go('/chat');
+              break;
+            case 2:
+              context.go('/moods');
+              break;
+            case 3:
+              context.go('/voice');
+              break;
+            case 4:
+              context.go('/stats');
+              break;
+          }
         },
         shadowColor: const Color.fromARGB(255, 14, 14, 14),
         backgroundColor: const Color(0xff032429),
       ),
-      body: _screens[currentPageIndex],
     );
   }
 }
