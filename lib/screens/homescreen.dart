@@ -65,7 +65,7 @@ class SoulHomeScreen extends StatelessWidget {
                                 style: TextStyle(
                                     fontSize: screenHeight * 0.045,
                                     color: Colors.white,
-                                    fontFamily: 'Alice'),
+                                    fontFamily: 'MontserratAlternates'),
                               ),
                               Text(
                                 'How can I assist you right now?',
@@ -259,7 +259,7 @@ class SoulHomeScreen extends StatelessWidget {
                   Text(
                     'Recent History',
                     style: TextStyle(
-                        fontSize: screenHeight * 0.025, fontFamily: 'Alice'),
+                        fontSize: screenHeight * 0.025, fontFamily: 'MontserratAlternates'),
                   ),
                   SizedBox(height: screenHeight * 0.02),
                   Padding(

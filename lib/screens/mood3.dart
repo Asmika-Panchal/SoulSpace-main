@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:soul/screens/homescreen.dart';
-import 'package:soul/screens/homescreen.dart'; // Ensure you import SoulHomeScreen
+
 
 
 class Mood3Screen extends StatefulWidget {

@@ -30,6 +30,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -37,6 +38,8 @@ dependencies:
   convex_bottom_bar: ^3.2.0  
 
 dev_dependencies:
+  
+
   flutter_test:
     sdk: flutter
   gif: 2.3.0 
@@ -94,21 +97,29 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
+  # fonts:
+  #   - family: Alice
+  #     fonts:
+  #       - asset: fonts/Alice-Regular.ttf
+  # #       - asset: fonts/Schyler-Italic.ttf
+  # #         style: italic
+  #   - family: Playfair
+  #     fonts:
+  #       - asset: fonts/PlayfairDisplay-Italic-VariableFont_wght.ttf
+  #       - asset: fonts/PlayfairDisplay-VariableFont_wght.ttf
+  # #         weight: 700
+  #   - family: Quicksand
+  #     fonts:
+  #       - asset: fonts/Quicksand-VariableFont_wght.ttf
+  # #         weight: 700
   fonts:
-    - family: Alice
+    - family: MontserratAlternates
       fonts:
-        - asset: fonts/Alice-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
-    - family: Playfair
-      fonts:
-        - asset: fonts/PlayfairDisplay-Italic-VariableFont_wght.ttf
-        - asset: fonts/PlayfairDisplay-VariableFont_wght.ttf
-  #         weight: 700
-    - family: Quicksand
-      fonts:
-        - asset: fonts/Quicksand-VariableFont_wght.ttf
-  #         weight: 700
+        - asset: fonts/MontserratAlternates-Regular.ttf
+  # fonts:
+  #   - family: Poppins
+  #     fonts:
+  #       - asset: fonts/Poppins-Regular.ttf
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
