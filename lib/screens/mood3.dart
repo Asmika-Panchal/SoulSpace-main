@@ -53,7 +53,7 @@ class _Mood3ScreenState extends State<Mood3Screen> {
           Container(
             decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/mood_3.webp'), // Update with your image path
+                image: AssetImage('assets/mood_3.jpg'), // Update with your image path
                 fit: BoxFit.cover,
               ),
             ),

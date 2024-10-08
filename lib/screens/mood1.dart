@@ -61,13 +61,13 @@ class Mood1ScreenState extends State<Mood1Screen> {
             decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage(
-                    'assets/mood_1.webp'), // Replace with your image asset
+                    'assets/mood_1.jpg'), // Replace with your image asset
                 fit: BoxFit.cover, // Cover the full page
               ),
             ),
             child: BackdropFilter(
               filter: ImageFilter.blur(
-                
+
                   sigmaX: 5.0, sigmaY: 5.0), // Increase blur intensity
               child: Container(
                 decoration: BoxDecoration(

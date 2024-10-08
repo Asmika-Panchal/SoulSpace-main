@@ -50,7 +50,7 @@ class _Mood2ScreenState extends State<Mood2Screen> {
             decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage(
-                    'assets/mood_2.webp'), // Add your background image here
+                    'assets/mood_2.jpg'), // Add your background image here
                 fit: BoxFit.cover,
               ),
             ),
