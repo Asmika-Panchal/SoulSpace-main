@@ -89,6 +89,7 @@ flutter:
    - assets/shapes.riv
    - assets/robot.riv
    - assets/robocat.riv
+   - assets/icons.riv
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
