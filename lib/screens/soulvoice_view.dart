@@ -2,6 +2,7 @@ import 'dart:math';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:rive/rive.dart';
 
 class SoulVoiceView extends StatefulWidget {
   const SoulVoiceView({super.key});
@@ -36,70 +37,52 @@ class SoulVoiceViewState extends State<SoulVoiceView>
         children: [
           // Background Robot Image
           Container(
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage(
-                    'assets/bgblack.jpg'), // Replace with your robot image
-                fit: BoxFit.cover,
-              ),
-            ),
+            // color: Color(0xff120025),
+            color: Colors.black,
           ),
-          // Glassmorphism effect with microphone icon, waves, and title
+          // Centering the content
           Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                // Title Section
-                Column(
-                  children: [
-                    Text(
-                      "Hi, I am Soul Voice",
-                      style: TextStyle(
-                        fontSize: 28,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white.withOpacity(0.9),
-                      ),
-                    ),
-                    SizedBox(
-                        height: 8), // Small space between title and subtitle
-                    Text(
-                      "Tell me how can I help you",
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w300,
-                        color: Colors.white.withOpacity(0.7),
-                      ),
-                    ),
-                  ],
+                Text(
+                  "Hi, I am Soul Voice",
+                  style: TextStyle(
+                    fontSize: 28,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white.withOpacity(0.9),
+                  ),
+                ),
+                SizedBox(height: 8), // Small space between title and subtitle
+                Text(
+                  "Tell me how can I help you",
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w300,
+                    color: Colors.white.withOpacity(0.7),
+                  ),
+                ),
+                SizedBox(height: 30), // Space between robot and text
+                // Robot animation
+                SizedBox(
+                  height: 450,
+                  child: RiveAnimation.asset(
+                    "assets/robocat.riv",
+                    fit: BoxFit.fitHeight,
+                    stateMachines: ['State Machine'],
+                    artboard: 'Catbot',
+                  ),
                 ),
                 SizedBox(
-                    height: 30), // Space between title and glassmorphism box
-                // Glassmorphism Container with Microphone and Wave Animation
-                GlassmorphismContainer(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      // Microphone Icon
-                      Icon(
-                        Icons.mic,
-                        size: 100,
-                        color: Colors.white.withOpacity(0.8),
-                      ),
-                      SizedBox(height: 30), // Space between icon and waves
-                      // Wave Animation
-                      SizedBox(
-                        height: 200,
-                        width: double.infinity,
-                        child: AnimatedBuilder(
-                          animation: _controller,
-                          builder: (context, child) {
-                            return CustomPaint(
-                              painter: WavePainter(_controller.value),
-                            );
-                          },
-                        ),
-                      ),
-                    ],
+                  height: 100,
+                  width: double.infinity,
+                  child: AnimatedBuilder(
+                    animation: _controller,
+                    builder: (context, child) {
+                      return CustomPaint(
+                        painter: WavePainter(_controller.value),
+                      );
+                    },
                   ),
                 ),
               ],

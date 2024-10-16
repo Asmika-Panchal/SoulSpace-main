@@ -35,14 +35,14 @@ class ChatScreen extends StatelessWidget {
         Container(
           decoration: const BoxDecoration(
             image: DecorationImage(
-              image: AssetImage('assets/soulbg.jpg'),
+              image: AssetImage('assets/bg2.jpeg'),
               fit: BoxFit.cover,
             ),
           ),
           child: BackdropFilter(
             filter: ImageFilter.blur(sigmaX: 7.0, sigmaY: 7.0),
             child: Container(
-              decoration: BoxDecoration(color: Colors.black.withOpacity(0.5)),
+              decoration: BoxDecoration(color: Colors.black.withOpacity(0.6)),
             ),
           ),
         ),

@@ -1,20 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:rive/rive.dart';
 
 void main() => runApp(MaterialApp(
-      home: MyRiveAnimation(),
+      home: SplashScreen(),
     ));
 
-class MyRiveAnimation extends StatelessWidget {
+class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: RiveAnimation.network(
-          'https://cdn.rive.app/animations/vehicles.riv',
-          fit: BoxFit.cover,
-        ),
-      ),
+    return SafeArea(
+      child: Scaffold(body: Container()),
     );
   }
 }
