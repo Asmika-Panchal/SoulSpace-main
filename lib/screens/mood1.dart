@@ -1,4 +1,5 @@
 import 'dart:ui'; // Import for ImageFilter.blur
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart'; // To manage status bar settings
@@ -41,6 +42,7 @@ class Mood1ScreenState extends State<Mood1Screen> {
 
   @override
   Widget build(BuildContext context) {
+    var screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       extendBodyBehindAppBar: true, // Extend body behind the AppBar
       appBar: AppBar(
@@ -67,12 +69,11 @@ class Mood1ScreenState extends State<Mood1Screen> {
             ),
             child: BackdropFilter(
               filter: ImageFilter.blur(
-
                   sigmaX: 5.0, sigmaY: 5.0), // Increase blur intensity
               child: Container(
                 decoration: BoxDecoration(
                   color: Colors.black.withOpacity(0.6), // Darker overlay
-                backgroundBlendMode: BlendMode.darken, // Darken blend mode
+                  backgroundBlendMode: BlendMode.darken, // Darken blend mode
                 ),
               ),
             ),
@@ -242,6 +243,9 @@ class Mood1ScreenState extends State<Mood1Screen> {
                 ),
               ),
             ),
+          SizedBox(
+            height: screenHeight * 0.075,
+          )
         ],
       ),
     );

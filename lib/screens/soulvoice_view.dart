@@ -97,7 +97,7 @@ class SoulVoiceViewState extends State<SoulVoiceView>
 class GlassmorphismContainer extends StatelessWidget {
   final Widget child;
 
-  const GlassmorphismContainer({required this.child});
+  const GlassmorphismContainer({super.key, required this.child});
 
   @override
   Widget build(BuildContext context) {
