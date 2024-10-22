@@ -70,20 +70,25 @@ class _BottomNavState extends State<BottomNav> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor:
-          Colors.transparent, // Make Scaffold background transparent
       body: widget.child,
-      bottomNavigationBar: SafeArea(
-        child: ClipRRect(
+      extendBody:
+          true, // Ensures that the bottom nav bar overlaps with the body
+      bottomNavigationBar: Container(
+        padding: const EdgeInsets.all(8),
+        margin: const EdgeInsets.all(16),
+        decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
+        ),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(
+              20), // Apply rounded corners to blur as well
           child: BackdropFilter(
-            filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0), // Blur effect
+            filter: ImageFilter.blur(
+                sigmaX: 7, sigmaY: 7), // Only blur inside this container
             child: Container(
               padding: const EdgeInsets.all(8),
-              margin: const EdgeInsets.symmetric(horizontal: 16),
               decoration: BoxDecoration(
-                color: Colors.blueGrey.shade800
-                    .withOpacity(0.4), // Slate color with opacity
+                color: Colors.blueGrey.withOpacity(0.4),
                 borderRadius: BorderRadius.circular(20),
               ),
               child: Row(

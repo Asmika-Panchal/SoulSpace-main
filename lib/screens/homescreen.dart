@@ -42,231 +42,229 @@ class SoulHomeScreen extends StatelessWidget {
               ),
             ),
           ),
-          SafeArea(
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  Padding(
-                    padding: EdgeInsets.symmetric(
-                        horizontal: screenWidth * 0.05,
-                        vertical: screenHeight * 0.02),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'Hello, John',
-                                style: TextStyle(
-                                    fontSize: screenHeight * 0.045,
-                                    color: Colors.white,
-                                    fontFamily: 'MontserratAlternates'),
-                              ),
-                              Text(
-                                'How can I assist you right now?',
-                                style: TextStyle(
-                                    fontSize: screenHeight * 0.02,
-                                    color: Colors.white),
-                              ),
-                            ],
-                          ),
-                        ),
-                        InkWell(
-                          onTap: () {
-                            context.push('/profile');
-                          },
-                          child: Hero(
-                            tag: "my-hero-animation-tag",
-                            child: CircleAvatar(
-                              backgroundColor: Colors.white,
-                              radius: screenHeight * 0.04,
-                              child: Image.asset("assets/profile.png"),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+          SingleChildScrollView(
+            child: Column(
+              children: [
+                Padding(
+                  padding: EdgeInsets.symmetric(
+                      horizontal: screenWidth * 0.05,
+                      vertical: screenHeight * 0.06),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          InkWell(
-                            child: Container(
-                              decoration: const BoxDecoration(
-                                  borderRadius: BorderRadius.only(
-                                      bottomRight: Radius.circular(16),
-                                      bottomLeft: Radius.circular(40),
-                                      topLeft: Radius.circular(40),
-                                      topRight: Radius.circular(16)),
-                                  color: Color(0xff7cf6ad)),
-                              height: screenHeight * 0.31,
-                              width: screenWidth * 0.4,
-                              child: Center(
-                                  child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Container(
-                                    decoration: const BoxDecoration(
-                                      shape: BoxShape.circle,
-                                      color: Color(0xff75e8a4),
-                                    ),
-                                    padding: const EdgeInsets.all(7),
-                                    child: const Icon(
-                                      CupertinoIcons.mic,
-                                      size: 35,
-                                      color: Color(0xff360844),
-                                    ),
-                                  ),
-                                  const Text(
-                                    'Talk with SoulVoice',
-                                    style: TextStyle(
-                                        fontSize: 20,
-                                        color: Color.fromARGB(255, 0, 0, 0),
-                                        fontWeight: FontWeight.bold),
-                                    textAlign: TextAlign.center,
-                                  ),
-                                ],
-                              )),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Hello, John',
+                              style: TextStyle(
+                                  fontSize: screenHeight * 0.045,
+                                  color: Colors.white,
+                                  fontFamily: 'MontserratAlternates'),
                             ),
-                            onTap: () {
-                              context.push('/voice');
-                            },
-                          ),
-                        ],
+                            Text(
+                              'How can I assist you right now?',
+                              style: TextStyle(
+                                  fontSize: screenHeight * 0.02,
+                                  color: Colors.white),
+                            ),
+                          ],
+                        ),
                       ),
-                      SizedBox(
-                        width: screenWidth * 0.01,
-                      ),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          InkWell(
-                            child: Container(
-                              decoration: const BoxDecoration(
-                                  borderRadius: BorderRadius.only(
-                                      bottomRight: Radius.circular(16),
-                                      bottomLeft: Radius.circular(16),
-                                      topLeft: Radius.circular(16),
-                                      topRight: Radius.circular(40)),
-                                  color: Color(0xffbcf489)),
-                              height: screenHeight * 0.15,
-                              width: screenWidth * 0.4,
-                              child: Center(
-                                  child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Container(
-                                    decoration: const BoxDecoration(
-                                      shape: BoxShape.circle,
-                                      color: Color(0xffade07e),
-                                    ),
-                                    padding: const EdgeInsets.all(7),
-                                    child: const Icon(
-                                      CupertinoIcons.chat_bubble_fill,
-                                      size: 35,
-                                      color: Color(0xff512E5F),
-                                    ),
-                                  ),
-                                  const Text(
-                                    'Chat',
-                                    style: TextStyle(
-                                        fontSize: 20,
-                                        color: Color(0xff512E5F),
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                ],
-                              )),
-                            ),
-                            onTap: () {
-                              context.push('/chat');
-                            },
+                      InkWell(
+                        onTap: () {
+                          context.push('/profile');
+                        },
+                        child: Hero(
+                          tag: "my-hero-animation-tag",
+                          child: CircleAvatar(
+                            backgroundColor: Colors.white,
+                            radius: screenHeight * 0.04,
+                            child: Image.asset("assets/profile.png"),
                           ),
-                          SizedBox(
-                            height: screenHeight * 0.01,
-                          ),
-                          InkWell(
-                            child: Container(
-                              decoration: const BoxDecoration(
-                                  borderRadius: BorderRadius.only(
-                                      bottomRight: Radius.circular(40),
-                                      bottomLeft: Radius.circular(16),
-                                      topLeft: Radius.circular(16),
-                                      topRight: Radius.circular(16)),
-                                  color: Color(0xffe0e5fd)),
-                              height: screenHeight * 0.15,
-                              width: screenWidth * 0.4,
-                              child: Center(
-                                  child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Container(
-                                    decoration: const BoxDecoration(
-                                      shape: BoxShape.circle,
-                                      color: Color.fromARGB(255, 230, 233, 251),
-                                    ),
-                                    padding: const EdgeInsets.all(7),
-                                    child: const Icon(
-                                      CupertinoIcons.graph_square_fill,
-                                      size: 35,
-                                      color: Color(0xff512E5F),
-                                    ),
-                                  ),
-                                  const Text(
-                                    'Stats',
-                                    style: TextStyle(
-                                        fontSize: 20,
-                                        color: Color(0xff512E5F),
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                ],
-                              )),
-                            ),
-                            onTap: () {
-                              context.push('/stats');
-                            },
-                          ),
-                        ],
+                        ),
                       ),
                     ],
                   ),
-                  SizedBox(height: screenHeight * 0.03),
-                  Text(
-                    'Recent History',
-                    style: TextStyle(
-                        fontSize: screenHeight * 0.025,
-                        fontFamily: 'MontserratAlternates'),
-                  ),
-                  SizedBox(height: screenHeight * 0.02),
-                  Padding(
-                    padding: EdgeInsets.only(bottom: screenHeight * 0.05),
-                    child: ListView(
-                      shrinkWrap: true,
-                      physics: const NeverScrollableScrollPhysics(),
-                      padding:
-                          EdgeInsets.symmetric(horizontal: screenWidth * 0.05),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        _buildRecentHistoryCard("Continue chat", "2024-09-17",
-                            () {
-                          // Handle delete action
-                        }),
-                        _buildRecentHistoryCard("Continue chat", "2024-09-17",
-                            () {
-                          // Handle delete action
-                        }),
-                        _buildRecentHistoryCard("Continue chat", "2024-09-17",
-                            () {
-                          // Handle delete action
-                        }),
+                        InkWell(
+                          child: Container(
+                            decoration: const BoxDecoration(
+                                borderRadius: BorderRadius.only(
+                                    bottomRight: Radius.circular(16),
+                                    bottomLeft: Radius.circular(40),
+                                    topLeft: Radius.circular(40),
+                                    topRight: Radius.circular(16)),
+                                color: Color(0xff7cf6ad)),
+                            height: screenHeight * 0.31,
+                            width: screenWidth * 0.4,
+                            child: Center(
+                                child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Container(
+                                  decoration: const BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: Color(0xff75e8a4),
+                                  ),
+                                  padding: const EdgeInsets.all(7),
+                                  child: const Icon(
+                                    CupertinoIcons.mic,
+                                    size: 35,
+                                    color: Color(0xff360844),
+                                  ),
+                                ),
+                                const Text(
+                                  'Talk with SoulVoice',
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      color: Color.fromARGB(255, 0, 0, 0),
+                                      fontWeight: FontWeight.bold),
+                                  textAlign: TextAlign.center,
+                                ),
+                              ],
+                            )),
+                          ),
+                          onTap: () {
+                            context.push('/voice');
+                          },
+                        ),
                       ],
                     ),
+                    SizedBox(
+                      width: screenWidth * 0.01,
+                    ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        InkWell(
+                          child: Container(
+                            decoration: const BoxDecoration(
+                                borderRadius: BorderRadius.only(
+                                    bottomRight: Radius.circular(16),
+                                    bottomLeft: Radius.circular(16),
+                                    topLeft: Radius.circular(16),
+                                    topRight: Radius.circular(40)),
+                                color: Color(0xffbcf489)),
+                            height: screenHeight * 0.15,
+                            width: screenWidth * 0.4,
+                            child: Center(
+                                child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Container(
+                                  decoration: const BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: Color(0xffade07e),
+                                  ),
+                                  padding: const EdgeInsets.all(7),
+                                  child: const Icon(
+                                    CupertinoIcons.chat_bubble_fill,
+                                    size: 35,
+                                    color: Color(0xff512E5F),
+                                  ),
+                                ),
+                                const Text(
+                                  'Chat',
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      color: Color(0xff512E5F),
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ],
+                            )),
+                          ),
+                          onTap: () {
+                            context.push('/chat');
+                          },
+                        ),
+                        SizedBox(
+                          height: screenHeight * 0.01,
+                        ),
+                        InkWell(
+                          child: Container(
+                            decoration: const BoxDecoration(
+                                borderRadius: BorderRadius.only(
+                                    bottomRight: Radius.circular(40),
+                                    bottomLeft: Radius.circular(16),
+                                    topLeft: Radius.circular(16),
+                                    topRight: Radius.circular(16)),
+                                color: Color(0xffe0e5fd)),
+                            height: screenHeight * 0.15,
+                            width: screenWidth * 0.4,
+                            child: Center(
+                                child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Container(
+                                  decoration: const BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: Color.fromARGB(255, 230, 233, 251),
+                                  ),
+                                  padding: const EdgeInsets.all(7),
+                                  child: const Icon(
+                                    CupertinoIcons.graph_square_fill,
+                                    size: 35,
+                                    color: Color(0xff512E5F),
+                                  ),
+                                ),
+                                const Text(
+                                  'Stats',
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      color: Color(0xff512E5F),
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ],
+                            )),
+                          ),
+                          onTap: () {
+                            context.push('/stats');
+                          },
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+                SizedBox(height: screenHeight * 0.03),
+                Text(
+                  'Recent History',
+                  style: TextStyle(
+                      fontSize: screenHeight * 0.025,
+                      fontFamily: 'MontserratAlternates'),
+                ),
+                SizedBox(height: screenHeight * 0.02),
+                Padding(
+                  padding: EdgeInsets.only(bottom: screenHeight * 0.05),
+                  child: ListView(
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    padding:
+                        EdgeInsets.symmetric(horizontal: screenWidth * 0.05),
+                    children: [
+                      _buildRecentHistoryCard("Continue chat", "2024-09-17",
+                          () {
+                        // Handle delete action
+                      }),
+                      _buildRecentHistoryCard("Continue chat", "2024-09-17",
+                          () {
+                        // Handle delete action
+                      }),
+                      _buildRecentHistoryCard("Continue chat", "2024-09-17",
+                          () {
+                        // Handle delete action
+                      }),
+                    ],
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ],
