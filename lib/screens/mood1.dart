@@ -165,8 +165,9 @@ class Mood1ScreenState extends State<Mood1Screen> {
           Align(
             alignment: Alignment.bottomLeft,
             child: Padding(
-              padding:
-                  const EdgeInsets.all(16.0), // Adds some space from the edges
+              padding: EdgeInsets.only(
+                  left: 16.0,
+                  bottom: screenHeight * 0.12), // Increased bottom padding
               child: InkWell(
                 onTap: () {
                   Navigator.push(
@@ -207,8 +208,9 @@ class Mood1ScreenState extends State<Mood1Screen> {
             Align(
               alignment: Alignment.bottomRight,
               child: Padding(
-                padding: const EdgeInsets.all(
-                    16.0), // Adds some space from the edges
+                padding: EdgeInsets.only(
+                    right: 16.0,
+                    bottom: screenHeight * 0.12), // Increased bottom padding
                 child: InkWell(
                   onTap: () {
                     Navigator.push(
@@ -221,7 +223,7 @@ class Mood1ScreenState extends State<Mood1Screen> {
                   },
                   child: Container(
                     decoration: BoxDecoration(
-                      color: const Color(0xff7cf6ad), // Custom background color
+                      color: const Color(0xff7cf6ad),
                       borderRadius: BorderRadius.circular(30),
                     ),
                     padding: const EdgeInsets.symmetric(
@@ -243,9 +245,6 @@ class Mood1ScreenState extends State<Mood1Screen> {
                 ),
               ),
             ),
-          SizedBox(
-            height: screenHeight * 0.075,
-          )
         ],
       ),
     );

@@ -20,8 +20,7 @@ class _Mood2ScreenState extends State<Mood2Screen> {
     // Make status bar transparent
     SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
       statusBarColor: Colors.transparent, // Transparent status bar
-      statusBarIconBrightness:
-          Brightness.light, // White icons on the status bar
+      statusBarIconBrightness: Brightness.light, // White icons on the status bar
     ));
   }
 
@@ -55,12 +54,10 @@ class _Mood2ScreenState extends State<Mood2Screen> {
               ),
             ),
             child: BackdropFilter(
-              filter: ImageFilter.blur(
-                  sigmaX: 4.0, sigmaY: 4.0), // Apply more blur to background
+              filter: ImageFilter.blur(sigmaX: 4.0, sigmaY: 4.0), // Apply blur
               child: Container(
                 decoration: BoxDecoration(
-                  color: Colors.black
-                      .withOpacity(0.3), // Darker overlay for more contrast
+                  color: Colors.black.withOpacity(0.3), // Dark overlay
                 ),
               ),
             ),
@@ -72,12 +69,10 @@ class _Mood2ScreenState extends State<Mood2Screen> {
               children: [
                 // Tray (Black Rectangle)
                 Container(
-                  margin: const EdgeInsets.symmetric(
-                      horizontal: 20), // Adds margin around the black tray
+                  margin: const EdgeInsets.symmetric(horizontal: 20),
                   decoration: BoxDecoration(
-                    color: Colors.black
-                        .withOpacity(0.5), // Black color with 50% opacity
-                    borderRadius: BorderRadius.circular(10), // Rounded corners
+                    color: Colors.black.withOpacity(0.5),
+                    borderRadius: BorderRadius.circular(10),
                   ),
                   padding: const EdgeInsets.symmetric(
                       vertical: 16.0, horizontal: 18.0),
@@ -94,13 +89,11 @@ class _Mood2ScreenState extends State<Mood2Screen> {
                         textAlign: TextAlign.center,
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(
-                            top:
-                                30.0), // Margin to space between text and mood options
+                        padding: const EdgeInsets.only(top: 30.0),
                         child: Wrap(
                           alignment: WrapAlignment.center,
-                          spacing: 20.0, // Space between buttons
-                          runSpacing: 20.0, // Space between rows
+                          spacing: 20.0,
+                          runSpacing: 20.0,
                           children: [
                             MoodButton(
                                 text: 'Relation',
@@ -129,11 +122,9 @@ class _Mood2ScreenState extends State<Mood2Screen> {
                   ),
                 ),
                 const SizedBox(height: 50), // Space outside the rectangle
-                // Selected Mood Display
                 if (selectedFeel.isNotEmpty)
                   Container(
-                    margin:
-                        const EdgeInsets.only(left: 16, right: 16, bottom: 35),
+                    margin: const EdgeInsets.only(left: 16, right: 16, bottom: 35),
                     padding: const EdgeInsets.all(16),
                     decoration: BoxDecoration(
                       color: Colors.black.withOpacity(0.6),
@@ -154,21 +145,22 @@ class _Mood2ScreenState extends State<Mood2Screen> {
           Align(
             alignment: Alignment.bottomLeft,
             child: Padding(
-              padding:
-                  const EdgeInsets.all(16.0), // Adds some space from the edges
+              padding: EdgeInsets.only(
+                  left: 16.0,
+                  right: 16.0,
+                  bottom: MediaQuery.of(context).size.height * 0.12),
               child: InkWell(
                 onTap: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) =>
-                          const Mood3Screen(), // Navigate to Mood3Screen
+                      builder: (context) => const Mood3Screen(),
                     ),
                   );
                 },
                 child: Container(
                   decoration: BoxDecoration(
-                    color: const Color(0xFFC4E875), // Custom background color
+                    color: const Color(0xFFC4E875),
                     borderRadius: BorderRadius.circular(30),
                   ),
                   padding:
@@ -176,13 +168,11 @@ class _Mood2ScreenState extends State<Mood2Screen> {
                   child: const Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Icon(Icons.arrow_forward,
-                          color: Colors.black), // Icon with black color
+                      Icon(Icons.arrow_forward, color: Colors.black),
                       SizedBox(width: 8),
                       Text(
                         "Skip",
-                        style: TextStyle(
-                            color: Colors.black), // Black text for "Skip"
+                        style: TextStyle(color: Colors.black),
                       ),
                     ],
                   ),
@@ -195,21 +185,22 @@ class _Mood2ScreenState extends State<Mood2Screen> {
             Align(
               alignment: Alignment.bottomRight,
               child: Padding(
-                padding: const EdgeInsets.all(
-                    16.0), // Adds some space from the edges
+                padding: EdgeInsets.only(
+                    left: 16.0,
+                    right: 16.0,
+                    bottom: MediaQuery.of(context).size.height * 0.12),
                 child: InkWell(
                   onTap: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) =>
-                            const Mood3Screen(), // Navigate to Mood3Screen
+                        builder: (context) => const Mood3Screen(),
                       ),
                     );
                   },
                   child: Container(
                     decoration: BoxDecoration(
-                      color: const Color(0xff7cf6ad), // Custom background color
+                      color: const Color(0xff7cf6ad),
                       borderRadius: BorderRadius.circular(30),
                     ),
                     padding: const EdgeInsets.symmetric(
@@ -222,11 +213,10 @@ class _Mood2ScreenState extends State<Mood2Screen> {
                           style: TextStyle(
                               color: Colors.black,
                               fontSize: 18,
-                              fontWeight: FontWeight.bold), // Text for "Next"
+                              fontWeight: FontWeight.bold),
                         ),
                         SizedBox(width: 8),
-                        Icon(Icons.arrow_forward,
-                            color: Colors.black), // Icon with black color
+                        Icon(Icons.arrow_forward, color: Colors.black),
                       ],
                     ),
                   ),
@@ -243,7 +233,7 @@ class _Mood2ScreenState extends State<Mood2Screen> {
 class MoodButton extends StatelessWidget {
   final String text;
   final bool isSelected;
-  final Function(String) onFeelSelected; // Callback for mood selection
+  final Function(String) onFeelSelected;
 
   const MoodButton({
     super.key,
@@ -256,30 +246,27 @@ class MoodButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        onFeelSelected(text); // Trigger the callback with the selected mood
+        onFeelSelected(text);
       },
       child: Container(
         decoration: BoxDecoration(
           color: isSelected
               ? const Color.fromARGB(255, 3, 57, 133)
-              : Colors.transparent, // Transparent background for unselected
+              : Colors.transparent,
           border: Border.all(
-            color: const Color.fromARGB(255, 130, 127, 127).withOpacity(
-                0.5), // Slightly black border for unselected buttons
+            color: const Color.fromARGB(255, 130, 127, 127).withOpacity(0.5),
             width: 2,
           ),
-          borderRadius: BorderRadius.circular(30), // Rounded corners
+          borderRadius: BorderRadius.circular(30),
         ),
-        padding: const EdgeInsets.symmetric(
-            horizontal: 24, vertical: 12), // Padding around the text
+        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
         child: Text(
           text,
           style: TextStyle(
             color: isSelected
                 ? Colors.white
-                : Colors.white.withOpacity(
-                    0.8), // White text for selected mood, slightly transparent for unselected
-            fontWeight: FontWeight.bold, // Bold font
+                : Colors.white.withOpacity(0.8),
+            fontWeight: FontWeight.bold,
           ),
         ),
       ),
